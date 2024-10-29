@@ -1,0 +1,75 @@
+# Python related files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+
+# Virtual environment
+env/
+venv/
+ENV/
+VENV/
+*.env
+*.venv
+
+# Django related files
+db.sqlite3
+*.log
+
+# Local settings
+settings_local.py
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+static/
+
+# Node.js dependency directories
+node_modules/
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS related files
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pip related files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.cache
+
+# Test related files
+nosetests.xml
+coverage.xml
+*.cover
+*.coverage.*
+.cache/
+
+# Pytest
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Sphinx documentation
+docs/_build/
+
+# Backup files
+*.bak
+*.tmp
+

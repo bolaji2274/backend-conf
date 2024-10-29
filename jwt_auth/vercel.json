@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "jwt_auth/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "jwt_auth/wsgi.py"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "postgresql://postgres:rsryyszTqRCPNagcSDTqOhzmuwXLZZUf@junction.proxy.rlwy.net:31419/railway", 
+    "SECRET_KEY": "django-insecure-$t7&d=@m$9!+ylfh9lxlajd(-pg5*!4gysrh#d&b2pu^2j*27s",  
+    "DEBUG": "false"
+  }
+}
