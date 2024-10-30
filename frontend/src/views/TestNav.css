@@ -1,0 +1,83 @@
+.navbar {
+    background-color: #fff; /* Change to your desired background color */
+    padding: 1rem 2rem; /* Adjust padding as necessary */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Adjust logo color */
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Spacing between menu items */
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #333; /* Adjust link color */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #007BFF; /* Change to hover color */
+}
+
+.btn-register, .btn-login {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-register {
+    background-color: #28a745; /* Register button color */
+}
+
+.btn-login {
+    background-color: #007bff; /* Login button color */
+}
+
+.btn-register:hover, .btn-login:hover {
+    opacity: 0.9; /* Button hover effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column; /* Stack items vertically */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff; /* Background for dropdown */
+        display: none; /* Initially hide */
+        margin: 0;
+        padding: 1rem 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-menu.show {
+        display: flex; /* Show on toggle */
+    }
+
+    .navbar-container {
+        flex-direction: column; /* Stack logo and menu */
+        align-items: flex-start; /* Align items to start */
+    }
+}

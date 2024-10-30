@@ -1,0 +1,150 @@
+
+.navbar {
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.brand a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-list {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-list .nav-center {
+    display: flex;
+}
+
+.nav-list .nav-center li {
+    margin: 0 15px;
+    padding: 5px 10px;
+    color: #000;
+}
+
+a.active{
+    color: red;
+}
+
+.nav-list .nav-center a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-list .nav-center a:hover {
+    background-color: #e2e6ea;
+    border-radius: 5px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: right;
+}
+
+.nav-right li {
+    margin-left: 10px;
+}
+
+.nav-right .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-right .btn-login {
+    background-color: #007bff;
+    color: #fff;
+
+}
+
+.nav-right .btn-register {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.nav-right .btn-login:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.nav-right .btn-register:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: #f8f9fa;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        padding: 10px 0;
+        border-top: 1px solid #ccc;
+        z-index: 1000;
+        opacity: 0;
+        margin-top: 25px;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-list.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .toggle {
+        display: block;
+    }
+
+    .nav-center, .nav-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-right {
+        margin-top: 20px;
+    }
+
+    .nav-right .btn {
+        width: 90%; /* Make buttons wider on mobile */
+        text-align: center;
+    }
+
+    .nav-right li {
+        margin-bottom: 10px;
+
+    }
+}

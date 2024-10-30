@@ -1,0 +1,45 @@
+/* src/styles.css */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+}
+
+footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+footer p {
+    margin: 0;
+}
+
+.navbar {
+    padding: 20px;
+}
+
+.navbar-brand img {
+    width: 150px;
+}

@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 from django.core.mail import send_mail
 
 import os
+
+import dj_database_url
+
 import certifi
 # settings.py
 
@@ -63,6 +66,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,13 +100,16 @@ WSGI_APPLICATION = 'jwt_auth.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 # DATABASE_URL = 'postgresql://postgres:rsryyszTqRCPNagcSDTqOhzmuwXLZZUf@junction.proxy.rlwy.net:31419/railway'
 
 import os

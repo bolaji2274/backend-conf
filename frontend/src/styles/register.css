@@ -1,0 +1,20 @@
+.bg-img {
+  background-color: #9A616D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.register-card {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .register-card {
+    padding: 20px;
+  }
+}
