@@ -22,7 +22,7 @@ const OverviewPage = () => {
         receivedLivestock: 0,
     });
   useEffect(() => {
-    axios.get('http://localhost:8000/api/metrics')
+    axios.get('https://api-bkrt.onrender.com/api/metrics')
       .then((response) => {
         setMetrics(response.data);
       })

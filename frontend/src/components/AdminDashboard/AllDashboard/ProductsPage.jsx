@@ -16,7 +16,7 @@ const ProductsPage = () => {
 
   	useEffect(() => {
     // Fetch data from the API
-    axios.get('http://127.0.0.1:8000/api/product-dashboard/')
+    axios.get('https://api-bkrt.onrender.com/api/product-dashboard/')
       .then(response => {
         setData(response.data);
       })

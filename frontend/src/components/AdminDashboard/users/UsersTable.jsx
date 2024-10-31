@@ -13,7 +13,7 @@ const UsersTable = () => {
   // Fetch users from the API
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/users/", {
+      const response = await fetch("https://api-bkrt.onrender.com/api/users/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

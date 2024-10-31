@@ -9,7 +9,7 @@ function PendingOrders() {
     // Fetch applications when the component mounts
     const fetchApplications = async () => {
       try {
-        const response = await fetch('http://localhost:8000/applications/pending/', {
+        const response = await fetch('https://api-bkrt.onrender.com/api/applications/pending/', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

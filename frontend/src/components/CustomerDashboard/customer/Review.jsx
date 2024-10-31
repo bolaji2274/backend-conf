@@ -9,7 +9,7 @@ function ReviewOrders() {
     // Fetch applications when the component mounts
     const fetchApplications = async () => {
       try {
-        const response = await fetch('http://your-api-url/applications/', {
+        const response = await fetch('https://api-bkrt.onrender.com/api/applications/', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

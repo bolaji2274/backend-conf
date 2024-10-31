@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { useContext } from 'react'
 import AuthContext from '../context/AuthContext'
 
-const baseURL = "https://52.158.47.98:8000/api"
+const baseURL = "https://api-bkrt.onrender.com/api/"
 
 const useAxios = () => {
     const {authTokens, setUser, setAuthTokens} = useContext(AuthContext)

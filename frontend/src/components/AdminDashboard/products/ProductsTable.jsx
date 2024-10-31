@@ -11,7 +11,7 @@ const ProductsTable = () => {
 
 	useEffect(() => {
 		// Fetch data from the API
-		axios.get('http://127.0.0.1:8000/api/products/')
+		axios.get('https://api-bkrt.onrender.com/api/products/')
 			.then(response => {
 				setData(response.data);
 				setFilteredProducts(response.data); // Set filteredProducts when data is fetched

@@ -3,7 +3,7 @@ import axios from 'axios';
 import api from './api';
 
 const apiNew = axios.create({
-  baseURL: 'http://localhost:8000/api', // Adjust to match your Django backend URL
+  baseURL: 'https://api-bkrt.onrender.com/api/', // Adjust to match your Django backend URL
   headers: { 'Content-Type': 'application/json' },
 });
 

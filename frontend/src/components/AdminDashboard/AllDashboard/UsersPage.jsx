@@ -17,7 +17,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/metrics/users/');
+        const response = await fetch('https://api-bkrt.onrender.com/api//metrics/users/');
         
         if (response.ok) {
           const data = await response.json();

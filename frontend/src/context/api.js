@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create Axios instance with base URL and JSON headers
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api/',
+    baseURL: 'https://api-bkrt.onrender.com/api/',
     headers: {
         'Content-Type': 'application/json',
     }
@@ -15,7 +15,7 @@ async function refreshAccessToken() {
     if (authToken) {
         const { refresh } = JSON.parse(authToken);
         try {
-            const response = await axios.post('http://localhost:8000/api/token/refresh/', { refresh });
+            const response = await axios.post('https://api-bkrt.onrender.com/api/token/refresh/', { refresh });
             // Update access token in local storage
             const newAuthTokens = { ...JSON.parse(authToken), access: response.data.access };
             localStorage.setItem('authTokens', JSON.stringify(newAuthTokens));
