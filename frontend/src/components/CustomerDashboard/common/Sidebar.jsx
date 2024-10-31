@@ -15,7 +15,7 @@ const SIDEBAR_ITEMS = [
 	{ name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/customer/order" },
 	// { name: "Pending Order", icon: UserCheck, color: "#3B82F6", href: "/applications/pending" },
 	// { name: "Review Order", icon: DollarSign, color: "#10B981", href: "/review" },
-	{ name: "Profile", icon: UserCheck, color: "#3B82F6", href: "/profile" },
+	// { name: "Profile", icon: UserCheck, color: "#3B82F6", href: "/profile" },
 	
 	// { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];
