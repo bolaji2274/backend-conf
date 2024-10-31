@@ -7,7 +7,7 @@ __pycache__/
 *.swo
 
 # Virtual environment
-env/
+# env/
 venv/
 ENV/
 VENV/

@@ -100,9 +100,7 @@ WSGI_APPLICATION = 'jwt_auth.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-}
+
 
 # DATABASES = {
 #     'default': {
@@ -114,6 +112,16 @@ DATABASES = {
 
 import os
 import dj_database_url
+
+import environ
+
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
@@ -178,6 +186,9 @@ MEDIA_URL = '/images/'
 STATICFILES_DIR = [
     BASE_DIR / 'static'
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 MEDIA_ROOT = 'static/images'
 
 # Default primary key field type
@@ -194,8 +205,8 @@ REST_FRAMEWORK = { 'DEFAULT_AUTHENTICATION_CLASSES': (
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5), 
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=50), 
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120), 
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=5), 
     'ROTATE_REFRESH_TOKENS': True, 
     'BLACKLIST_AFTER_ROTATION': True, 
     'UPDATE_LAST_LOGIN': False,
