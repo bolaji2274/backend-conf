@@ -3,11 +3,11 @@ dayjs
 jwt-decode
 react-router-dom
 sweetalert2
-# @mui/material
-# @emotion/react
-# @emotion/styled
+@mui/material
+@emotion/react
+@emotion/styled
 recharts
-# @mui/icons-material
+@mui/icons-material
 react-scroll
 react-slick 
 slick-carousel
