@@ -13,7 +13,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([])
   useEffect(()=> {
     async function fetchProduct(){
-      const {data} = await axios.get('http://localhost:8000/api/products/')
+      const {data} = await axios.get('https://api-bkrt.onrender.com/api/products/')
       setProducts(data)
     }
     fetchProduct()

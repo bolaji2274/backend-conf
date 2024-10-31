@@ -9,15 +9,41 @@ function LoginPage() {
   const { loginUser, errors, clearErrors } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true)
-    clearErrors();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   clearErrors();
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
 
-    email.length > 0 && loginUser(email, password);
-  };
+  //   email.length > 0 && loginUser(email, password);
+  // };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  clearErrors();
+
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+
+  try {
+    if (email.length > 0) {
+      const errorResponse = await loginUser(email, password);
+
+      if (errorResponse) {
+        // Set backend errors to display
+        Object.keys(errorResponse).forEach(key => {
+          errors[key] = errorResponse[key];
+        });
+      }
+    }
+  } catch (error) {
+    console.error("Login failed", error);
+  } finally {
+    setLoading(false); // Stop loading regardless of success or error
+  }
+};
+
 
   return (
     <div>
@@ -25,7 +51,7 @@ function LoginPage() {
         <Nav />
         <section className="vh-100 bg-img">
           <div className="container h-100 d-flex justify-content-center align-items-center">
-            <div className="col col-xl-5"> {/* Control the width here */}
+            <div className="col col-xl-5">
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
                   <div className="col-md-12 d-flex align-items-center">
@@ -49,9 +75,9 @@ function LoginPage() {
                             type="email"
                             id="form2Example17"
                             className="form-control form-control-lg"
-                            name='email'
+                            name="email"
                           />
-                          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>} {/* Show email error */}
+                          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
                         </div>
                         <div className="form-outline mb-4 pass">
                           <label className="form-label" htmlFor="form2Example27">
@@ -61,12 +87,14 @@ function LoginPage() {
                             type="password"
                             id="form2Example27"
                             className="form-control form-control-lg"
-                            name='password'
+                            name="password"
                           />
-                          {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>} {/* Show password error */}
+                          {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                         </div>
-                          {loading && <Loading/>}
-                        <div className="pt-1 mb-4">
+                        <div className='d-flex justify-content-center'>
+                         {loading && <Loading/>}
+                    </div>
+                        <div className="pt-1 mb-4 d-flex justify-content-center">
                           <button
                             className="btn btn-dark btn-lg btn-block submit-button submit-btn"
                             type="submit"

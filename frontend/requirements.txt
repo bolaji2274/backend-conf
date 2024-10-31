@@ -13,3 +13,4 @@ react-slick
 slick-carousel
 lucide-react
 framer-motion
+# https://api-bkrt.onrender.com/api/
