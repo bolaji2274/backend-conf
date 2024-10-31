@@ -15,12 +15,18 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+import os
+import dj_database_url
+
+import environ
+
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 from django.core.mail import send_mail
 
-import os
 
-import dj_database_url
 
 import certifi
 # settings.py
@@ -40,7 +46,9 @@ SSL_CERT_FILE = certifi.where()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$t7&d=@m$9!+ylfh9lxlajd(-pg5*!4gysrh#d&b2pu^2j*27s'
+
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -110,14 +118,7 @@ WSGI_APPLICATION = 'jwt_auth.wsgi.application'
 # }
 # DATABASE_URL = 'postgresql://postgres:rsryyszTqRCPNagcSDTqOhzmuwXLZZUf@junction.proxy.rlwy.net:31419/railway'
 
-import os
-import dj_database_url
 
-import environ
-
-
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
