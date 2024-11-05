@@ -40,6 +40,7 @@ import AdminOrders from "./components/CustomerDashboard/customer/AdminOrders";
 
 import Order from './components/CustomerDashboard/customer/OrderPage'
 
+import Cart from "./pages/Cart";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
@@ -57,7 +58,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/test" element={<TestLogin />} />
-            {/* <Route path='/about' element={<About/>}/> */}
+            <Route path='/cart' element={<Cart/>}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
 

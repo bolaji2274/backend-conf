@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { jwtDecode } from "jwt-decode"; // Corrected import, not as an object
+import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
-import { Nav, Container, Button } from "react-bootstrap";
+import { Nav, Button } from "react-bootstrap";
 import { Link as ScrollLink } from "react-scroll";
+import { useSelector } from 'react-redux';
 import '../styles/Navbar.css';
 import logo from "../assets/images/nasfarm-logo.jpg";
 import AuthContext from '../context/AuthContext';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,14 +18,16 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Decode token to get user role
   const token = localStorage.getItem("authTokens");
   let isAdmin = false;
 
   if (token) {
     const decodedToken = jwtDecode(token);
-    isAdmin = decodedToken.is_admin; // Assuming `is_admin` is in the token payload
+    isAdmin = decodedToken.is_admin;
   }
+
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <nav className="navbar">
@@ -47,71 +51,32 @@ const Navbar = () => {
         </div>
         <ul className={`nav-list ${isOpen ? 'active' : ''}`}>
           <div className="nav-center">
-            <li>
-              <Link to="/" smooth={true} duration={200}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Nav.Link as={ScrollLink} to="about" smooth={true} duration={200}>
-                About
-              </Nav.Link>
-            </li>
-            <li>
-              <Nav.Link as={ScrollLink} to="contact" smooth={true} duration={200}>
-                Contact
-              </Nav.Link>
-            </li>
-            <li>
-              <Nav.Link as={ScrollLink} to="services" smooth={true} duration={200}>
-                Services
-              </Nav.Link>
-            </li>
-            <li>
-              <Nav.Link as={ScrollLink} to="product" smooth={true} duration={200}>
-                Products
-              </Nav.Link>
-            </li>
+            <li><Link to="/" smooth={true} duration={200}>Home</Link></li>
+            <li><Nav.Link as={ScrollLink} to="about" smooth={true} duration={200}>About</Nav.Link></li>
+            <li><Nav.Link as={ScrollLink} to="contact" smooth={true} duration={200}>Contact</Nav.Link></li>
+            <li><Nav.Link as={ScrollLink} to="services" smooth={true} duration={200}>Services</Nav.Link></li>
+            <li><Nav.Link as={ScrollLink} to="product" smooth={true} duration={200}>Products</Nav.Link></li>
           </div>
           <div className="nav-right text-white">
             {token ? (
               <>
-                <li>
-                  <Link
-                    to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}
-                  >
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={logoutUser}
-                    style={{ cursor: "pointer" }}
-                  >
-                    Logout
-                  </Link>
-                </li>
+                <li><Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}>Dashboard</Link></li>
+                <li><Link onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</Link></li>
               </>
             ) : (
               <>
-                <Button
-                  variant="outline-info"
-                  className="ms-2"
-                  as={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-                <Button
-                  variant="outline-info"
-                  className="ms-2"
-                  as={Link}
-                  to="/register"
-                >
-                  Register
-                </Button>
+                <Button variant="outline-info" className="ms-2" as={Link} to="/login">Login</Button>
+                <Button variant="outline-info" className="ms-2" as={Link} to="/register">Register</Button>
               </>
             )}
+            <li className="cart-icon-container">
+              <Link to="/cart" className="cart-icon">
+                <FaShoppingCart size={24} color="white" />
+                {cartItemCount > 0 && (
+                  <span className="cart-badge">{cartItemCount}</span>
+                )}
+              </Link>
+            </li>
           </div>
         </ul>
       </div>

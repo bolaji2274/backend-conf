@@ -1,6 +1,7 @@
 import React from 'react'
 // import Header from '../views/Header'
 // import AppFooter from './AppFooter'
+import chicken3 from '../assets/images/chicken-3.jpg'
 import chicken from '../assets/images/chicken-7.jpg'
 
 function About() {
@@ -10,6 +11,11 @@ function About() {
       <section className="about_section layout_padding">
   <div className="container-fluid">
     <div className="row">
+      <div className="col-md-5 px-0">
+        <div className="img-box ">
+          <img src={chicken3} className="box_img" alt="about img" />
+        </div>
+      </div>
       <div className="col-md-5 offset-md-1">
         <div className="detail-box pr-md-2">
           <div className="heading_container">
@@ -25,11 +31,7 @@ function About() {
           </a>
         </div>
       </div>
-      <div className="col-md-6 px-0">
-        <div className="img-box ">
-          <img src={chicken} className="box_img" alt="about img" />
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>

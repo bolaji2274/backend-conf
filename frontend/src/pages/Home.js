@@ -26,13 +26,14 @@ const Home = () => {
 
       {/* Introduction Section */}
       <Container maxWidth="lg" className="intro-section">
-        <Element name="about">
-
-          <About />
-        </Element>
      <Element name="product">
       <ProductList/>
       </Element>   
+
+      <Element name="about">
+
+          <About />
+        </Element>
           {" "}
         <Typography variant="h4" gutterBottom className="text-center">
           About Us
