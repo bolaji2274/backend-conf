@@ -38,7 +38,7 @@ const ProductList = () => {
             <div className="product-details">
               <h3>{product.name}</h3>
               <p>Category: {product.category}</p>
-              <p>Price: ${product.price.toFixed(2)}</p>
+              <p>Price: ₦{product.price.toFixed(2)}</p>
               <p>Stock: {product.stock} available</p>
               <Button
                 variant="contained"

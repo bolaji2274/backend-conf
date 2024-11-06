@@ -120,7 +120,7 @@ const ProductsTable = () => {
 
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
 									{/* Assuming price is a string from the API, you can parse it to a float */}
-									# {parseFloat(product.price).toFixed(2)} {/* Format as needed */}
+									₦{parseFloat(product.price).toFixed(2)} {/* Format as needed */}
 								</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{product.stock}</td>
 								<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{product.sales}</td>

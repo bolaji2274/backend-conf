@@ -74,7 +74,7 @@ function RegisterPage() {
                       <input type="password" className="form-control form-control-lg" placeholder="Confirm Password" onChange={(e) => setPassword2(e.target.value)} />
                       {errors.password2 && <p style={{ color: 'red' }}>{errors.password2}</p>}
                     </div>
-                    <div className='d-flex justify-content-center'>
+                    <div className='d-flex justify-content-center mt-4 mb-4'>
                       {loading && <Loading />}
                     </div>
                     <div className="pt-1 mb-4 d-flex justify-content-center">

@@ -91,7 +91,7 @@ function LoginPage() {
                           />
                           {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                         </div>
-                        <div className='d-flex justify-content-center'>
+                        <div className='d-flex justify-content-center mt-4 mb-4'>
                          {loading && <Loading/>}
                     </div>
                         <div className="pt-1 mb-4 d-flex justify-content-center">

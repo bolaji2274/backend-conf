@@ -4,6 +4,7 @@ import Header from "../common/Header";
 import StatCard from "../common/StatCard";
 import Sidebar from "../common/Sidebar";
 import { AlertTriangle, DollarSign, Package, TrendingUp } from "lucide-react";
+import { TbCurrencyNaira } from "react-icons/tb";
 import CategoryDistributionChart from "../overview/CategoryDistributionChart";
 import SalesTrendChart from "../products/SalesTrendChart";
 import ProductsTable from "../products/ProductsTable";
@@ -54,7 +55,7 @@ const ProductsPage = () => {
 					<StatCard name='Total Products' icon={Package} value={data.total_products} color='#6366F1' />
 					<StatCard name='Top Selling' icon={TrendingUp} value={data.top_selling_product.name} color='#10B981' />
 					<StatCard name='Low Stock' icon={AlertTriangle} value={(data.low_stock_products)? 0 : data.low_stock_products} color='#F59E0B' />
-					<StatCard name='Total Revenue' icon={DollarSign} value={`$${data.total_revenue}`} color='#EF4444' />
+					<StatCard name='Total Revenue' icon={TbCurrencyNaira} value={`₦${data.total_revenue}`} color='#EF4444' />
 				</motion.div>
 
 				<ProductsTable />

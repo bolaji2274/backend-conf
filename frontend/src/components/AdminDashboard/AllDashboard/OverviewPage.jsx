@@ -1,4 +1,5 @@
 import { BarChart2, ShoppingBag, Users, Zap } from "lucide-react";
+import { TbCurrencyNaira } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 import Header from "../common/Header";
@@ -44,7 +45,7 @@ const OverviewPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <StatCard name='Total Sales' icon={Zap} value={`$${data.total_sales}`} color='#6366F1' />
+            <StatCard name='Total Sales' icon={TbCurrencyNaira} value={`₦${data.total_sales}`} color='#6366F1' />
             <StatCard name='New Users' icon={Users} value={data.new_users} color='#8B5CF6' />
             <StatCard name='Total Products' icon={ShoppingBag} value={data.total_products} color='#EC4899' />
             <StatCard name='Conversion Rate' icon={BarChart2} value={`${data.conversion_rate} %`} color='#10B981' />

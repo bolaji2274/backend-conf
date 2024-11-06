@@ -1,4 +1,5 @@
 import { CheckCircle, Clock, DollarSign, ShoppingBag } from "lucide-react";
+import { TbCurrencyNaira } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 import Sidebar from "../common/Sidebar";
@@ -15,7 +16,7 @@ const orderStats = {
 	totalOrders: "0",
 	pendingOrders: "0",
 	completedOrders: "0",
-	totalRevenue: "$0",
+	totalRevenue: "₦0",
 };
 
 const OrdersPage = () => {
@@ -55,7 +56,7 @@ const OrdersPage = () => {
 						value={orders.completed_orders}
 						color='#10B981'
 					/>
-					<StatCard name='Total Revenue' icon={DollarSign} value={orders.total_revenue} color='#EF4444' />
+					<StatCard name='Total Revenue' icon={TbCurrencyNaira} value={`₦${orders.total_revenue}`} color='#EF4444' />
 				</motion.div>
 					<OrdersTable />
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 mt-3'>

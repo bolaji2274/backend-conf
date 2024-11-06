@@ -2,6 +2,7 @@ import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, Trend
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { TbCurrencyNaira } from "react-icons/tb";
 
 const SIDEBAR_ITEMS = [
 	{
@@ -13,7 +14,7 @@ const SIDEBAR_ITEMS = [
 	{ name: "Products", icon: ShoppingBag, color: "#8B5CF6", href: "/products" },
 	{ name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
 	{ name: "Users", icon: Users, color: "#EC4899", href: "/users" },
-	{ name: "Sales", icon: DollarSign, color: "#10B981", href: "/sales" },
+	{ name: "Sales", icon: TbCurrencyNaira, color: "#10B981", href: "/sales" },
 	{ name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
 	// { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];

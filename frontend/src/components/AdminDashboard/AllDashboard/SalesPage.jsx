@@ -3,14 +3,15 @@ import { motion } from "framer-motion";
 import Header from "../common/Header";
 import StatCard from "../common/StatCard";
 import { CreditCard, DollarSign, ShoppingCart, TrendingUp } from "lucide-react";
+import { TbCurrencyNaira } from "react-icons/tb";
 import SalesOverviewChart from "../sales/SalesOverviewChart";
 import SalesByCategoryChart from "../sales/SalesByCategoryChart";
 import DailySalesTrend from "../sales/DailySalesTrend";
 import Sidebar from "../common/Sidebar";
 
 const salesStats = {
-	totalRevenue: "$0",
-	averageOrderValue: "$0",
+	totalRevenue: "0",
+	averageOrderValue: "0",
 	conversionRate: "0%",
 	salesGrowth: "0%",
 };
@@ -36,11 +37,11 @@ const SalesPage = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 				>
-					<StatCard name='Total Revenue' icon={DollarSign} value={salesStats.totalRevenue} color='#6366F1' />
+					<StatCard name='Total Revenue' icon={TbCurrencyNaira} value={`₦${salesStats.totalRevenue}`} color='#6366F1' />
 					<StatCard
 						name='Avg. Order Value'
 						icon={ShoppingCart}
-						value={salesStats.averageOrderValue}
+						value={`₦${salesStats.averageOrderValue}`}
 						color='#10B981'
 					/>
 					<StatCard

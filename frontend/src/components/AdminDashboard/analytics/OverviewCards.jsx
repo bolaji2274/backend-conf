@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { DollarSign, Users, ShoppingBag, Eye, ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { TbCurrencyNaira } from "react-icons/tb";
 
 const overviewData = [
-	{ name: "Revenue", value: "$123457", change: 12.5, icon: DollarSign },
-	{ name: "Users", value: "15", change: 8.3, icon: Users },
-	{ name: "Orders", value: "4", change: -3.2, icon: ShoppingBag },
+	{ name: "Revenue", value: "₦0", change: 12.5, icon: TbCurrencyNaira },
+	{ name: "Users", value: "5", change: 8.3, icon: Users },
+	{ name: "Orders", value: "2", change: -3.2, icon: ShoppingBag },
 	{ name: "Page Views", value: "12", change: 15.7, icon: Eye },
 ];
 

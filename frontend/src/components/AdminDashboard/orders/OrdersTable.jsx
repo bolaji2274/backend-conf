@@ -94,7 +94,7 @@ const OrdersTable = () => {
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.customer_name}</td>
 				<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.application_details.product_details.name}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.application_details.quantity}</td>
-				<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.total_price}</td>
+				<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>₦{order.total_price}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                     order.status === "Accepted"

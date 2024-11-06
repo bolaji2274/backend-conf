@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
-import { Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link as ScrollLink } from "react-scroll";
 import { useSelector } from 'react-redux';
 import '../styles/Navbar.css';
 import logo from "../assets/images/nasfarm-logo.jpg";
 import AuthContext from '../context/AuthContext';
 import { FaShoppingCart } from 'react-icons/fa';
+import { ShoppingCart } from 'lucide-react';
+import { ToggleLeftIcon } from 'lucide-react';
 
-const Navbar = () => {
+const Navbars = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -84,4 +86,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbars;
