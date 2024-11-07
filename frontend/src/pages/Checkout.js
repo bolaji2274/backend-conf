@@ -4,6 +4,8 @@ import { Typography, Button, List, ListItem, ListItemText, TextField, Divider, B
 import { motion } from 'framer-motion';
 import { removeFromCart, updateQuantity } from '../store/CartSlice';
 import { useNavigate } from 'react-router-dom';
+import Nav from './Nav';
+import AppFooter from './AppFooter';
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -19,6 +21,9 @@ const Checkout = () => {
   const total = subtotal + shippingFee;
 
   return (
+      <>
+    <Nav />
+    <div className='w-full h-full mt-12 mb-12'>
     <motion.div
       className="checkout-container"
       initial={{ opacity: 0, y: 20 }}
@@ -135,6 +140,9 @@ const Checkout = () => {
         </Button>
       </Box>
     </motion.div>
+        </div>
+        <AppFooter />
+    </>
   );
 };
 
