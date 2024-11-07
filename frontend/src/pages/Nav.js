@@ -11,6 +11,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { ShoppingCart } from 'lucide-react';
 import { ToggleLeftIcon } from 'lucide-react';
 
+
 const Navbars = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
@@ -36,18 +37,30 @@ const Navbars = () => {
       <div className="container cont">
         <div className="brand">
           <Link to="/">
-            <img
+            {/* <img
               style={{
-                width: "80px",
-                height: "80px",
+                width: "24px",
+                height: "24px",
                 padding: "7px",
                 borderRadius: "50%",
               }}
               src={logo}
               alt="Nasfarm Logo"
-            />
+            /> */}
+            <h2 className='text-2xl text-white'>Nas<span className='text-3xl text-green-500'>Farm</span></h2>
           </Link>
         </div>
+        {/* <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
+             <FaShoppingCart size={24} color="white" />
+            </button> */}
+            <li className="cart-icon-container lg:ml-4 md:ml-4">
+              <Link to="/cart" className="cart-icon lg:ml-4 md:ml-4">
+                <FaShoppingCart size={24} color="white" className='lg:ml-4 md:ml-4'/>
+                {cartItemCount > 0 && (
+                  <span className="cart-badge">{cartItemCount}</span>
+                )}
+              </Link>
+            </li>
         <div className="toggle" onClick={toggleNavbar}>
           &#9776;
         </div>
@@ -71,14 +84,14 @@ const Navbars = () => {
                 <Button variant="outline-info" className="ms-2" as={Link} to="/register">Register</Button>
               </>
             )}
-            <li className="cart-icon-container">
+            {/* <li className="cart-icon-container">
               <Link to="/cart" className="cart-icon">
                 <FaShoppingCart size={24} color="white" />
                 {cartItemCount > 0 && (
                   <span className="cart-badge">{cartItemCount}</span>
                 )}
               </Link>
-            </li>
+            </li> */}
           </div>
         </ul>
       </div>

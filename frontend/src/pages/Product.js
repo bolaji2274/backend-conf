@@ -15,8 +15,8 @@ const ProductList = () => {
 
   useEffect(() => {
     async function fetchProduct() {
-      const { data } = await axios.get('https://api-bkrt.onrender.com/api/products/');
-      setProducts(data);
+      // const { data } = await axios.get('https://api-bkrt.onrender.com/api/products/');
+      // setProducts(data);
     }
     fetchProduct();
   }, []);

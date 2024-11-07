@@ -17,13 +17,10 @@ import Hero from "./Hero.js";
 import Nav from './Nav.js'
 import ProductList from "./Product.js";
 
-import TestNav from "./TestNav.js";
-
 const Home = () => {
   return (
     <>
       <Nav />
-    <TestNav />
 <Hero />
 
       {/* Introduction Section */}
