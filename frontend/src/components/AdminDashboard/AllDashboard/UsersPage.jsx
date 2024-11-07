@@ -8,6 +8,7 @@ import UserGrowthChart from "../users/UserGrowthChart";
 import UserActivityHeatmap from "../users/UserActivityHeatmap";
 import UserDemographicsChart from "../users/UserDemographicsChart";
 import Sidebar from "../common/Sidebar";
+import Spinner from '../../../pages/Spinner.js'
 
 const UsersPage = () => {
   const [metrics, setMetrics] = useState({});
@@ -36,7 +37,9 @@ const UsersPage = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>
+      <Spinner/>
+    </div>;
   }
 
   if (error) {

@@ -48,7 +48,7 @@ const Checkout = () => {
           <ListItem key={item.id} style={{ padding: '10px 0' }}>
             <ListItemText
               primary={item.name}
-              secondary={`₦${item.price.toFixed(2)} x ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`}
+              secondary={`₦${item.price.toFixed(2)} x ${item.quantity} = ₦${(item.price * item.quantity).toFixed(2)}`}
               primaryTypographyProps={{ style: { color: "#1F2937", fontWeight: "bold" } }}
               secondaryTypographyProps={{ style: { color: "#6B7280" } }}
             />

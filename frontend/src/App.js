@@ -45,6 +45,8 @@ import ProductList from "./pages/Product";
 import StoreProduct from "./pages/StoreProduct";
 // import HomeRoutes from "./Routes/HomeRoutes";
 import Checkout from "./pages/Checkout";
+import Nav from "./pages/Nav";
+import AppFooter from "./pages/AppFooter";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
@@ -55,7 +57,10 @@ function App() {
       <AuthProvider>
         <Suspense fallback={<Spinner />}>
           <Routes>
-            <Route path="/" element={<Home />} />
+
+            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Nav />}> </Route>
+            <Route path="/" element={<AppFooter />}> </Route>
             <Route path="/myorder" element={<OrderForm />} />
             <Route path="/customorder" element={<CustomerOrders />} />
             <Route path="/adminorder" element={<AdminOrders />} />
