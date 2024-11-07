@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
+// ProductList.js
+import React, { useEffect, useState } from 'react';
 import { Typography, Button, TextField } from "@mui/material";
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addToCart } from '../store/CartSlice';
-import { useNavigate } from 'react-router-dom';
 import hen from '../assets/images/hens.jpg';
 import catFishs from '../assets/images/images-3.jpeg';
+// import catFish from '../assets/images/images.jpeg';
 import bird from '../assets/images/birds.jpg';
+import chicken from '../assets/images/chicken-5.jpg';
+import chick from '../assets/images/chick.jpg';
+import layer_chick from '../assets/images/chicken-2.jpg';
+import broiler from '../assets/images/chicken-coop.jpg';
 import turkey from '../assets/images/turkey-2.jpg';
+import egg from '../assets/images/eggs.jpg';
 import './ProductList.css';
+import Nav from './Nav';
 
-const ProductList = () => {
+const StoreProduct = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [quantities, setQuantities] = useState({});
 
   const myProduct = [
     { id: 1, name: "Organic Chicken", category: "Poultry", price: 20.0, stock: 50, image: hen },
-    { id: 2, name: "Cat Fish", category: "Fish", price: 15.0, stock: 100, image: catFishs },
-    { id: 3, name: "Chicks", category: "Chicken", price: 5.0, stock: 400, image: bird },
-    { id: 4, name: "Turkey", category: "Turkey", price: 30.0, stock: 30, image: turkey },
+    { id: 2, name: "Chicks", category: "Fish", price: 25.0, stock: 400, image: bird },
+    { id: 2, name: "Eggs", category: "Eggs", price: 25.0, stock: `${350} Create`, image: egg },
+    { id: 3, name: "Layer Chicks", category: "Fish", price: 25.0, stock: 400, image: layer_chick },
+    { id: 4, name: "Broiler", category: "Fish", price: 35.0, stock: 400, image: broiler },
+    { id: 5, name: "Cat Fish", category: "Fish", price: 15.0, stock: 100, image: chicken },
+    { id: 7, name: "Broiler Chicks", category: "Fish", price: 12.0, stock: 350, image: chick },
+    { id: 8, name: "Turkey", category: "Turkey", price: 30.0, stock: 30, image: turkey },
   ];
 
   const handleQuantityChange = (id, stock, value) => {
@@ -34,13 +43,11 @@ const ProductList = () => {
     }
   };
 
-  const handleSeeMore = () => {
-    navigate('/store'); // Replace '/store' with the actual route to your full product list page
-  };
-
   return (
+    <>
+    <Nav />
     <div className="product-list-container">
-      <Typography variant="h4" gutterBottom className='text-center'>Products</Typography>
+      <Typography variant="h4" gutterBottom className='text-center'>Products livestock & Farm product</Typography>
       <div className="product-grid">
         {myProduct.map((product) => (
           <div key={product.id} className="product-card">
@@ -72,20 +79,9 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-      <div className="see-more-container mt-4" style={{ textAlign: 'center', marginTop: '20px' }}>
-        <Link to='/store'>
-        <Button
-          variant="outlined"
-          color="primary"
-          // onClick={handleSeeMore}
-        >
-          See More Product
-        </Button>
-                
-        </Link>
-      </div>
     </div>
+        </>
   );
 };
 
-export default ProductList;
+export default StoreProduct;

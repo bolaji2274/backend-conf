@@ -41,6 +41,10 @@ import AdminOrders from "./components/CustomerDashboard/customer/AdminOrders";
 import Order from './components/CustomerDashboard/customer/OrderPage'
 
 import Cart from "./pages/Cart";
+import ProductList from "./pages/Product";
+import StoreProduct from "./pages/StoreProduct";
+// import HomeRoutes from "./Routes/HomeRoutes";
+import Checkout from "./pages/Checkout";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
@@ -64,8 +68,11 @@ function App() {
 
             {/* new login  */}
              {/* Test Route  */}
-            
-
+             
+             <Route path='/checkout' element={<Checkout />} />
+             <Route path='/store' element={<StoreProduct />} />
+            {/* Home routes  */}
+        
             {/* new Route */}
             <Route path='/admin/dashboard' element={<OverviewPage />} />
 				<Route path='/products' element={<ProductsPage />} />
