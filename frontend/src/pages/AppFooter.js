@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { Link as ScrollLink } from "react-scroll";
 
 function AppFooter() {
   return (
@@ -10,9 +13,9 @@ function AppFooter() {
             <div className="info_top">
               <div className="row">
                 <div className="col-md-3 ">
-                  <a className="navbar-brand" href="index.html">
+                  <Link to='/' className="navbar-brand">
                     Nasradamuff
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-md-5 ">
                   <div className="info_contact">
@@ -91,19 +94,19 @@ function AppFooter() {
                     <h5>Useful links</h5>
                     <ul className="info_menu">
                       <li>
-                        <a href="index.html">Home</a>
+                        <Link to='/'>Home</Link>
                       </li>
                       <li>
-                        <a href="about.html">About</a>
+                        <Nav.Link as={ScrollLink} to="about">About</Nav.Link>
                       </li>
                       <li>
-                        <a href="service.html">Services</a>
+                        <Nav.Link as={ScrollLink} to="services">Services</Nav.Link>
                       </li>
                       <li>
-                        <a href="team.html">Team</a>
+                        <Nav.Link as={ScrollLink} to="product">Product</Nav.Link>
                       </li>
                       <li className="mb-0">
-                        <a href="contact.html">Contact Us</a>
+                        <Nav.Link as={ScrollLink} to="Contact">Contact Us</Nav.Link>
                       </li>
                     </ul>
                   </div>

@@ -15,6 +15,7 @@ import turkey from '../assets/images/turkey-2.jpg';
 import egg from '../assets/images/eggs.jpg';
 import './ProductList.css';
 import Nav from './Nav';
+import AppFooter from './AppFooter';
 
 const StoreProduct = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ const StoreProduct = () => {
         ))}
       </div>
     </div>
+    <AppFooter />
         </>
   );
 };
