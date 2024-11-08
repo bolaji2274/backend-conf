@@ -260,11 +260,17 @@ li a {
 }
 
 .ms-2 .btn-outline-info {
-  color: white;
+  color: white !important;
   border-color: white;
 }
 
 .ms-2 .btn-outline-info:hover {
   color: #ddd;
   border-color: #ddd;
+}
+
+.m-btn {
+  border: none !important;
+  width: 80px !important;
+  padding: 5px !important;
 }

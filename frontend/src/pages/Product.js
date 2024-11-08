@@ -59,9 +59,11 @@ const ProductList = () => {
                 InputProps={{ inputProps: { min: 1, max: product.stock } }}
                 variant="outlined"
                 size="small"
+                className='mr-4'
               />
 
               <Button
+                className='ml-4'
                 variant="contained"
                 color="primary"
                 onClick={() => handleAddToCart(product)}
@@ -72,7 +74,7 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-      <div className="see-more-container mt-4" style={{ textAlign: 'center', marginTop: '20px' }}>
+      <div className="see-more-container mt-8" style={{ textAlign: 'center', marginTop: '20px' }}>
         <Link to='/store'>
         <Button
           variant="outlined"

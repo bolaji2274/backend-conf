@@ -80,8 +80,8 @@ const Navbars = () => {
               </>
             ) : (
               <>
-                <Button variant="outline-info" className="ms-2" as={Link} to="/login">Login</Button>
-                <Button variant="outline-info" className="ms-2" as={Link} to="/register">Register</Button>
+                <Button variant="outline-info" className="ms-2 m-btn" as={Link} to="/login">Login</Button>
+                <Button variant="outline-info" className="ms-2 m-btn" as={Link} to="/register">Register</Button>
               </>
             )}
             {/* <li className="cart-icon-container">
