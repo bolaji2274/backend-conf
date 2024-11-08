@@ -153,12 +153,13 @@ const Checkout = () => {
             </Box>
 
             <Button
+            className='flex items-center'
               variant="outlined"
               color="primary"
               style={{
                 color: '#10B981',
                 borderColor: '#10B981',
-                width: '100%',
+                width: '50%',
                 marginTop: '10px',
                 padding: '10px 0',
                 fontSize: '16px',

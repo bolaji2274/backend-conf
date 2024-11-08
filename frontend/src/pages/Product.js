@@ -27,12 +27,18 @@ const ProductList = () => {
     setQuantities({ ...quantities, [id]: quantity });
   };
 
+  // const handleAddToCart = (product) => {
+  //   const quantity = quantities[product.id] || 1;
+  //   if (quantity <= product.stock) {
+  //     dispatch(addToCart({ ...product, quantity }));
+  //   }
+  // };
   const handleAddToCart = (product) => {
-    const quantity = quantities[product.id] || 1;
-    if (quantity <= product.stock) {
-      dispatch(addToCart({ ...product, quantity }));
-    }
-  };
+  const quantity = quantities[product.id] || 1;
+  if (quantity <= product.stock) {
+    dispatch(addToCart({ ...product, quantity }));
+  }
+};
 
   const handleSeeMore = () => {
     navigate('/store'); // Replace '/store' with the actual route to your full product list page
