@@ -48,6 +48,8 @@ import Checkout from "./pages/Checkout";
 import Nav from "./pages/Nav";
 import AppFooter from "./pages/AppFooter";
 
+import ProductDescription from "./pages/ProductDescription";
+
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
 
@@ -76,6 +78,7 @@ function App() {
              
              <Route path='/checkout' element={<Checkout />} />
              <Route path='/store' element={<StoreProduct />} />
+             <Route path="/product/:productId" element={<ProductDescription />} />
             {/* Home routes  */}
         
             {/* new Route */}
