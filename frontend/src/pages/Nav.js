@@ -10,6 +10,7 @@ import AuthContext from '../context/AuthContext';
 import { FaShoppingCart } from 'react-icons/fa';
 import { ShoppingCart } from 'lucide-react';
 import { ToggleLeftIcon } from 'lucide-react';
+import { MenuIcon } from 'lucide-react';
 
 
 const Navbars = () => {
@@ -62,7 +63,8 @@ const Navbars = () => {
               </Link>
             </li>
         <div className="toggle" onClick={toggleNavbar}>
-          &#9776;
+          {/* &#9776; */}
+          <MenuIcon />
         </div>
         <ul className={`nav-list ${isOpen ? 'active' : ''}`}>
           <div className="nav-center">

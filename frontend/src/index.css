@@ -12,10 +12,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* font-family: 'Jost', sans-serif; */
+  font-family: 'Jost', sans-serif !important;
   /* font-family: 'Poppins', sans-serif; */
-
 }
+
 *,
 *::before,
 *::after {

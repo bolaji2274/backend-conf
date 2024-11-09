@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Typography, Button, List, ListItem, ListItemText, TextField, Divider, Box, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { Typography, Button, List, ListItem, ListItemText, TextField, Divider, Box, RadioGroup, FormControlLabel, Radio, Avatar, ListItemAvatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import { removeFromCart, updateQuantity } from '../store/CartSlice';
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import AppFooter from './AppFooter';
 import { PaystackButton } from 'react-paystack';
+import AuthContext from '../context/AuthContext'; // Import AuthContext for user authentication
 
 const Checkout = () => {
+  const { user } = useContext(AuthContext); // Access user data from AuthContext
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Redirect to login if user is not authenticated
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   const handleQuantityChange = (id, quantity) => {
     dispatch(updateQuantity({ id, quantity: parseInt(quantity, 10) }));
@@ -22,8 +31,8 @@ const Checkout = () => {
   const total = subtotal + shippingFee;
 
   const publicKey = "pk_test_213417fbea5430139901577a1004d6769b559123";
-  const email = "user@example.com"; // Replace with user's email from auth state or input
-  const amount = total * 100; // Amount in kobo
+  const email = user?.email || "user@example.com"; // Default email if not logged in
+  const amount = total * 100;
 
   const componentProps = {
     email,
@@ -31,22 +40,19 @@ const Checkout = () => {
     publicKey,
     text: "Pay Now",
     onSuccess: (reference) => handlePaymentSuccess(reference),
-    onClose: () => alert("Payment cancelled")
+    onClose: () => alert("Payment cancelled"),
   };
 
   const handlePaymentSuccess = (reference) => {
     fetch("/api/verify_payment/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ reference: reference.reference })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reference: reference.reference }),
     })
     .then(response => response.json())
     .then(data => {
       if (data.status) {
         alert("Payment successful! Transaction reference: " + reference.reference);
-        // Clear the cart or redirect the user after successful payment
       } else {
         alert("Payment verification failed. Please contact support.");
       }
@@ -75,11 +81,19 @@ const Checkout = () => {
         >
           <Typography variant="h4" style={{ marginBottom: '20px', color: '#4B5563' }}>Checkout</Typography>
           
-          {/* Cart Summary */}
+          {/* Order Summary */}
           <Typography variant="h6" style={{ marginBottom: '10px', color: '#4B5563' }}>Order Summary</Typography>
           <List>
             {cartItems.map((item) => (
               <ListItem key={item.id} style={{ padding: '10px 0' }}>
+                <ListItemAvatar>
+                  <Avatar
+                    src={item.image}
+                    alt={item.name}
+                    variant="square"
+                    sx={{ width: 60, height: 60, marginRight: '10px' }}
+                  />
+                </ListItemAvatar>
                 <ListItemText
                   primary={item.name}
                   secondary={`₦${item.price.toFixed(2)} x ${item.quantity} = ₦${(item.price * item.quantity).toFixed(2)}`}
@@ -141,33 +155,40 @@ const Checkout = () => {
               <Typography variant="h6" style={{ color: '#1F2937', fontWeight: "bold" }}>₦{total.toFixed(2)}</Typography>
             </Box>
 
-            <Box mt={3}>
-              <PaystackButton {...componentProps} style={{
-                backgroundColor: '#10B981',
-                color: '#FFFFFF',
-                width: '100%',
-                padding: '10px 0',
-                fontSize: '16px',
-                textAlign: 'center',
-              }} />
+            {/* Centered Pay Now Button */}
+            <Box display="flex" justifyContent="center" mt={2}>
+              <PaystackButton
+                {...componentProps}
+                style={{
+                  backgroundColor: '#10B981',
+                  color: '#FFFFFF',
+                  width: '150px',
+                  padding: '8px 0',
+                  fontSize: '14px',
+                  textAlign: 'center',
+                  borderRadius: '8px',
+                }}
+              />
             </Box>
 
-            <Button
-            className='flex items-center'
-              variant="outlined"
-              color="primary"
-              style={{
-                color: '#10B981',
-                borderColor: '#10B981',
-                width: '50%',
-                marginTop: '10px',
-                padding: '10px 0',
-                fontSize: '16px',
-              }}
-              onClick={() => navigate('/store')}
-            >
-              Continue Shopping
-            </Button>
+            {/* Centered Continue Shopping Button */}
+            <Box display="flex" justifyContent="center" mt={2}>
+              <Button
+                variant="outlined"
+                color="primary"
+                style={{
+                  color: '#10B981',
+                  borderColor: '#10B981',
+                  width: '35%',
+                  padding: '8px 0',
+                  fontSize: '14px',
+                  borderRadius: '8px',
+                }}
+                onClick={() => navigate('/store')}
+              >
+                Continue Shopping
+              </Button>
+            </Box>
           </Box>
         </motion.div>
       </div>
