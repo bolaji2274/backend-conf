@@ -17,11 +17,14 @@ import Hero from "./Hero.js";
 import Nav from './Nav.js'
 import ProductList from "./Product.js";
 
+import AddProductForm from "../products/AddProductForm.js";
+
 const Home = () => {
   return (
     <>
       <Nav />
 <Hero />
+<AddProductForm />
 
       {/* Introduction Section */}
       <Container maxWidth="lg" className="intro-section">

@@ -58,7 +58,7 @@ const Navbars = () => {
               <Link to="/cart" className="cart-icon lg:ml-4 md:ml-4">
                 <FaShoppingCart size={24} color="white" className='lg:ml-4 md:ml-4'/>
                 {cartItemCount > 0 && (
-                  <span className="cart-badge rounded-">{cartItemCount}</span>
+                  <span className="cart-badge rounded-sm">{cartItemCount}</span>
                 )}
               </Link>
             </li>
