@@ -13,7 +13,8 @@ ENV/
 VENV/
 *.env
 *.venv
-
+.env.production
+.env.development
 # Django related files
 db.sqlite3
 *.log

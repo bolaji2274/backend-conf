@@ -26,7 +26,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 from django.core.mail import send_mail
 
+# HYDROGENPAY_API_KEY=your_hydrogenpay_api_key
 
+# settings.py
+PAYSTACK_PUBLIC_KEY = "pk_test_213417fbea5430139901577a1004d6769b559123"
+PAYSTACK_SECRET_KEY = "sk_test_ead97904e004bd75661c51cb0472bd0942895520"
 
 import certifi
 # settings.py

@@ -46,4 +46,6 @@ urlpatterns = [
     path('users/', UserListView.as_view(), name='user-list'),
     path('orders/', CustomerOrderView.as_view(), name='order-list'),
     path('admin/orders/', OrderManagementView.as_view(), name='order-management'),
+    path("initialize-payment/", views.initialize_payment, name="initialize_payment"),
+    path("verify-payment/<str:reference>/", views.verify_payment, name="verify_payment"),
 ]

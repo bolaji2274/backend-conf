@@ -22,6 +22,42 @@ from .serializer import ProductSerializer, ApplicationSerializer
 import logging
 
 from rest_framework.decorators import api_view
+# views.py
+import requests
+from django.conf import settings
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def initialize_payment(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        amount = int(request.POST.get("amount")) * 100  # Paystack expects amount in kobo
+
+        headers = {
+            "Authorization": f"Bearer {settings.PAYSTACK_SECRET_KEY}",
+            "Content-Type": "application/json",
+        }
+        data = {
+            "email": email,
+            "amount": amount,
+        }
+        response = requests.post(
+            "https://api.paystack.co/transaction/initialize", headers=headers, json=data
+        )
+        return JsonResponse(response.json())
+# views.py
+@csrf_exempt
+def verify_payment(request, reference):
+    headers = {
+        "Authorization": f"Bearer {settings.PAYSTACK_SECRET_KEY}",
+        "Content-Type": "application/json",
+    }
+    response = requests.get(
+        f"https://api.paystack.co/transaction/verify/{reference}", headers=headers
+    )
+    return JsonResponse(response.json())
+
 
 # from .products import products
 
