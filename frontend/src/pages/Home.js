@@ -24,7 +24,7 @@ const Home = () => {
     <>
       <Nav />
 <Hero />
-<AddProductForm />
+
 
       {/* Introduction Section */}
       <Container maxWidth="lg" className="intro-section">
