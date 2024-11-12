@@ -1,15 +1,15 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 // import { Link, Element } from "react-scroll";
 import { Container, Typography, Grid, Button, Box } from "@mui/material";
-// import Grid from '@mui/material/Unstable_Grid2';
-// import chicken from "../assets/images/chicken-coop.jpg"; // Replace with the path to your hero image
-// import "./Home.css"; // Custom CSS for extra styling
+
+import servicesImage from '../assets/images/chicken-3.jpg'
 
 function Services() {
   return (
     <div>
             {/* Services Section */}
-      <Container maxWidth="lg" className="services-section">
+      {/* <Container maxWidth="lg" className="services-section">
         <Typography variant="h4" gutterBottom className='text-center'>
           Our Services
         </Typography>
@@ -42,7 +42,43 @@ function Services() {
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
+
+
+                  {/* Services Section */}
+            <section className="bg-gray-100 py-16">
+                <div className="max-w-6xl mx-auto text-center">
+                    <motion.h2 className="text-4xl font-semibold text-gray-800 mb-6" whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                        Our Services
+                    </motion.h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Livestock Supply */}
+                        <motion.div whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-lg">
+                            <img src={servicesImage} alt="Livestock" className="rounded-md h-48 w-full object-cover mb-4" />
+                            <h3 className="text-xl font-bold text-gray-700">High-Quality Livestock</h3>
+                            <p className="text-gray-600 mt-2">
+                                Broilers, layers, and fish, raised under optimal conditions for farmers’ success.
+                            </p>
+                        </motion.div>
+                        {/* Consultation */}
+                        <motion.div whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-lg">
+                            <img src={servicesImage} alt="Consultation" className="rounded-md h-48 w-full object-cover mb-4" />
+                            <h3 className="text-xl font-bold text-gray-700">Farming Consultation</h3>
+                            <p className="text-gray-600 mt-2">
+                                Expert agricultural advice for better livestock management and productivity.
+                            </p>
+                        </motion.div>
+                        {/* Profit-Sharing */}
+                        <motion.div whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-lg">
+                            <img src={servicesImage} alt="Profit Sharing" className="rounded-md h-48 w-full object-cover mb-4" />
+                            <h3 className="text-xl font-bold text-gray-700">Profit-Sharing Programs</h3>
+                            <p className="text-gray-600 mt-2">
+                                Join our profit-sharing model and grow without upfront capital investment.
+                            </p>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
     </div>
   )
 }
