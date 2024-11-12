@@ -79,6 +79,30 @@ function Services() {
                     </div>
                 </div>
             </section>
+             {/* Services Section */}
+      <section className="services_section py-16 bg-gray-50 text-center">
+        <h2 className="text-4xl font-semibold text-gray-800 mb-6">What We Offer</h2>
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="service-box bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Livestock Supply</h3>
+            <p className="text-gray-600">
+              We provide a wide range of high-quality livestock, including poultry, cattle, and fish, all raised with care and adhering to the highest standards of health and welfare.
+            </p>
+          </div>
+          <div className="service-box bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Farming Consultation</h3>
+            <p className="text-gray-600">
+              Our experts offer personalized consultation services, helping farmers optimize their operations, adopt sustainable practices, and maximize profitability.
+            </p>
+          </div>
+          <div className="service-box bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Profit-Sharing Programs</h3>
+            <p className="text-gray-600">
+              We engage in partnerships with farmers through innovative profit-sharing arrangements, ensuring that their hard work translates into sustainable financial growth.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

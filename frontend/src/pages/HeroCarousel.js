@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
+import { Nav } from "react-bootstrap";
+import { Link as ScrollLink } from "react-scroll";
 
 import slide1 from '../assets/images/chicken-3.jpg';
 import slide2 from '../assets/images/chicken-coop.jpg'; // Replace with your image paths
@@ -76,13 +78,16 @@ const HeroCarousel = () => {
                 >
                   {slide.description}
                 </motion.p>
-                <motion.button
+                <Nav.Link as={ScrollLink} to="services" smooth={true} duration={200}>
+                   <motion.button
                   className="px-6 py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
                   Learn More
                 </motion.button>
+                </Nav.Link>
+               
               </div>
             </motion.div>
           ) : null
