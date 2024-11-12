@@ -21,7 +21,7 @@ const testimonialsData = [
     name: "kolade Abdullah",
     location: "Kano, Nigeria",
     message: "The risk-mitigation and support they offer are unmatched. I feel more confident in my farming ventures thanks to Nasradamuff Farm.",
-    image: "https://via.placeholder.com/150" // Replace with actual image URL
+    image: "https://via.placeholder.com/150"
   }
 ];
 
