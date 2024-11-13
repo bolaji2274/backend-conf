@@ -1,5 +1,6 @@
 // ProductList.js
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Typography, Button, TextField } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -31,7 +32,15 @@ const StoreProduct = () => {
     <>
     <Nav />
       <div className="product-list-container">
-      <Typography variant="h4" gutterBottom className='text-center'>Products</Typography>
+      
+      <motion.h2
+                    className="text-4xl font-semibold text-gray-800 mb-4"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    Here is a list of our best valueable livestock products 
+                </motion.h2>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">

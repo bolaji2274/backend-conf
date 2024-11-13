@@ -38,6 +38,7 @@ import CustomerOrders from "./components/CustomerDashboard/customer/CustomerOrde
 import AdminOrders from "./components/CustomerDashboard/customer/AdminOrders";
 // import CustomerRegistration from "./pages/CustomerRegistration";
 
+
 import Order from './components/CustomerDashboard/customer/OrderPage'
 
 import Cart from "./pages/Cart";
@@ -49,6 +50,7 @@ import Nav from "./pages/Nav";
 import AppFooter from "./pages/AppFooter";
 
 import ProductDescription from "./pages/ProductDescription";
+import EmailVerification from "./email/EmailVerification";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
@@ -63,6 +65,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/" element={<Nav />}> </Route>
             <Route path="/" element={<AppFooter />}> </Route>
+            {/* <Route path="/verify-email/:uid/:token" element={<EmailVerification />} /> */}
             <Route path="/myorder" element={<OrderForm />} />
             <Route path="/customorder" element={<CustomerOrders />} />
             <Route path="/adminorder" element={<AdminOrders />} />

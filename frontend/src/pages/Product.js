@@ -1,12 +1,15 @@
 // src/components/ProductList.js
+// eslint-disable-next-line
 
 import React, { useState } from 'react';
 import { Typography, Button, TextField } from "@mui/material";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../store/CartSlice';
 import { selectProducts } from '../store/ProductSlice';
 import './ProductList.css';
+
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -27,7 +30,15 @@ const ProductList = () => {
 
   return (
     <div className="product-list-container">
-      <Typography variant="h4" gutterBottom className='text-center'>Products</Typography>
+     
+       <motion.h2
+                    className="text-4xl font-semibold text-gray-400 mb-6 mt-6 text-center "
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    Check Out Our Products Below 
+                </motion.h2>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">

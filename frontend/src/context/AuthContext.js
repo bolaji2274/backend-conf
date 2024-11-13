@@ -1,5 +1,6 @@
 import React, { Children } from 'react'
 import { createContext, useState, useEffect } from 'react'
+import { toast, ToastContainer } from 'react-toastify';
 import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
@@ -117,6 +118,9 @@ export const AuthProvider = ({ children }) => {
                     timerProgressBar: true,
                     showConfirmButton: false,
                 });
+                 // Trigger sign-up API call here...
+                toast.success("A verification email has been sent to your inbox. Please verify to complete registration.");
+                
             } else if (response.status === 400) {
                 // Capture Django-like form field errors
                 setErrors(data); // This `data` should be the error dictionary from Django
