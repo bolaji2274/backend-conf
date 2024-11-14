@@ -37,7 +37,7 @@ const ProductDescription = () => {
 
   return (
     <>
-    <Nav />
+    {/* <Nav /> */}
     <div className="product-description-container">
       <img src={product.image} alt={product.name} className="product-image-id" />
       <div className="product-details">
@@ -77,7 +77,7 @@ const ProductDescription = () => {
         </Typography>
       </div>
     </div>
-    <AppFooter />
+    {/* <AppFooter /> */}
         </>
   );
 };

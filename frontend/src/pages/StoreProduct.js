@@ -31,10 +31,10 @@ const StoreProduct = () => {
   return (
     <>
     {/* <Nav /> */}
-      <div className="product-list-container">
+      <div className="product-list-container mt-10">
       
       <motion.h2
-                    className="text-4xl font-semibold text-gray-800 mb-4"
+                    className="text-4xl font-semibold text-gray-500 mb-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -48,12 +48,16 @@ const StoreProduct = () => {
               <img src={product.image} alt={product.name} className="product-image" />
             </Link>
             <div className="product-details">
-              <Link to={`/product/${product.id}`}>
+               <Link to={`/product/${product.id}`}>
+              <div>
+              
                 <h3>{product.name}</h3>
-              </Link>
+             
               <p>Category: {product.category}</p>
               <p>Price: ₦{product.price.toFixed(2)}</p>
               <p>Stock: {product.stock} available</p>
+              </div>
+               </Link>
 
               <TextField
                 label="Quantity"
@@ -91,7 +95,7 @@ const StoreProduct = () => {
         </Link>
       </div>
     </div>
-    <AppFooter />
+    {/* <AppFooter /> */}
         </>
   );
 };

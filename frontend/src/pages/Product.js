@@ -47,11 +47,15 @@ const ProductList = () => {
             </Link>
             <div className="product-details">
               <Link to={`/product/${product.id}`}>
+              <div>
+              
                 <h3>{product.name}</h3>
-              </Link>
+             
               <p>Category: {product.category}</p>
               <p>Price: ₦{product.price.toFixed(2)}</p>
               <p>Stock: {product.stock} available</p>
+              </div>
+               </Link>
 
               <TextField
                 label="Quantity"
