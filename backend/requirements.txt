@@ -6,3 +6,4 @@ PyJWT
 Pillow
 certifi
 django-jazzmin
+django-allauth

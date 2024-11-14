@@ -5,7 +5,7 @@ import { removeFromCart, updateQuantity, clearCart } from '../store/CartSlice';
 import { Typography, Button, List, ListItem, ListItemText, TextField, Box, ListItemAvatar, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
-import AppFooter from './AppFooter';
+
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -126,7 +126,6 @@ const Cart = () => {
           </Box>
         </motion.div>
       </div>
-      <AppFooter />
     </>
   );
 };

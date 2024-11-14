@@ -35,7 +35,9 @@ PAYSTACK_SECRET_KEY = "sk_test_ead97904e004bd75661c51cb0472bd0942895520"
 import certifi
 # settings.py
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # before
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # For production
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For dev
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -70,10 +72,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "api",
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    "api",
+    "order",
+    
     # 'django.core.mail',
 ]
 

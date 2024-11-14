@@ -6,6 +6,8 @@ from .views import TicketViewSet, FeedbackViewSet, FarmerCommitmentViewSet, Prof
 from .views import SalesAnalysisView, CustomerAnalysisView, PerformanceMetricsView, UserListView
 from .views import overview_dashboard, ProductDashboardView, get_user_role, ApplicationCreateView, ProductDetailView
 from .views import OrderManagementView, CustomerOrderView
+from .views import resend_verification_email
+
 
 from rest_framework.routers import DefaultRouter
 
@@ -26,6 +28,7 @@ router.register(r'profit-distributions', ProfitDistributionViewSet)
 
 urlpatterns = [
     # path("api/",),
+    path('resend-verification-email/', resend_verification_email, name='resend-verification-email'),
     path("token/", views.MyTokenObtainPairView.as_view(), name="token"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token-refresh"),
     path("register/", views.RegisterView.as_view(), name="register"),

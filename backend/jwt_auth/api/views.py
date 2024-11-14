@@ -28,6 +28,17 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework.response import Response
+from .utils import send_verification_email  # Assuming you have the email function here
+
+@api_view(['POST'])
+def resend_verification_email(request):
+    user = request.user
+    if not user.is_active:
+        send_verification_email(user, request)
+        return Response({"message": "Verification email sent."}, status=200)
+    return Response({"message": "User is already verified."}, status=400)
+
 @csrf_exempt
 def initialize_payment(request):
     if request.method == "POST":

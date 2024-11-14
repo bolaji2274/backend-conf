@@ -11,6 +11,7 @@ const swal = require('sweetalert2')
 const AuthContext = createContext()
 
 
+
 export const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(() => {
         return localStorage.getItem('authTokens') 
@@ -39,8 +40,9 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ email, password }),
             });
             // Get the page the user tried to access before being redirected to login
-            const from = location.state?.from?.pathname || "/";
+            // const from = location.state?.from?.pathname || "/";
             const data = await response.json(); // Extract JSON data from response
+            const from = location.state?.from || "/"; // Default to home if no path provided
             if (response.status === 200) {
                 setAuthTokens(data);
                 const decodeToken = jwtDecode(data.access)
@@ -48,11 +50,19 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem('authTokens', JSON.stringify(data));
                 setErrors({});  // Clear previous errors
                 // navigate("/dashboard");
-                if (decodeToken.is_admin) {
-                    navigate("/admin/dashboard"); // Redirect to admin dashboard if user is admin
+                // if (decodeToken.is_admin) {
+                //     navigate("/admin/dashboard"); // Redirect to admin dashboard if user is admin
+                // } else {
+                //     navigate("/customer/dashboard");
+                //     console.log(decodeToken.is_admin) // Redirect to customer dashboard for regular users
+                // }
+                // Determine the redirection path: from protected route path or user-specific dashboard
+                if (from) {
+                    navigate(from, { replace: true }); // Navigate to the intended path
+                } else if (decodeToken.is_admin) {
+                    navigate("/admin/dashboard"); // Redirect to admin dashboard if no 'from' path
                 } else {
-                    navigate("/customer/dashboard");
-                    console.log(decodeToken.is_admin) // Redirect to customer dashboard for regular users
+                    navigate("/customer/dashboard"); // Redirect to customer dashboard if no 'from' path
                 }
                 
                 // navigate(from, { replace: true });  // Redirect to the protected page after login
@@ -156,7 +166,7 @@ export const AuthProvider = ({ children }) => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
-        navigate("/login"); // Correct usage of navigate
+        navigate("/logout"); // Correct usage of navigate
         swal.fire({
                 title: "You have been log out",
                 icon: "success",

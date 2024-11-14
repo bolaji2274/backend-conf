@@ -2,7 +2,9 @@
 .navbar {
     background-color: #f8f9fa;
     padding: 5px 10px;
-    position: sticky !important;
+    /* position: sticky !important; */
+    position: relative !important;
+    z-index: 10 !important; /* Ensure navbar sits above the main content */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,10 +117,11 @@ a.active{
         left: 0;
         padding: 10px 0;
         /* border-top: 1px solid #ccc; */
-        z-index: 1000;
         opacity: 0;
         margin-top: 25px;
         transition: opacity 0.3s ease;
+        z-index: 10 !important;
+
     }
 
     .nav-list.active {

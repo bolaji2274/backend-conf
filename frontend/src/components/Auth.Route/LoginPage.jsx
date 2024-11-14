@@ -1,61 +1,65 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext.js';
 import '../../styles/login.css';
 import Nav from '../../pages/Nav.js';
 import Loading from '../../context/Loading.jsx';
 
 function LoginPage() {
-  const { loginUser, errors, clearErrors } = useContext(AuthContext);
+  const { loginUser, errors, clearErrors, authTokens } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   clearErrors();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-
-  //   email.length > 0 && loginUser(email, password);
-  // };
-  const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  clearErrors();
-
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-
-  try {
-    if (email.length > 0) {
-      const errorResponse = await loginUser(email, password);
-
-      if (errorResponse) {
-        // Set backend errors to display
-        Object.keys(errorResponse).forEach(key => {
-          errors[key] = errorResponse[key];
-        });
-      }
+  // Check if there's a message to show from the ProtectedRoute redirection
+  const loginMessage = location.state?.message || "";
+  // Check if user is already logged in, and if so, redirect
+  useEffect(() => {
+    if (authTokens) {
+      navigate("/"); // Redirect to home or dashboard if the user is logged in
     }
-  } catch (error) {
-    console.error("Login failed", error);
-  } finally {
-    setLoading(false); // Stop loading regardless of success or error
-  }
-};
+  }, [authTokens, navigate]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    clearErrors();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    try {
+      if (email.length > 0) {
+        const errorResponse = await loginUser(email, password);
+
+        if (errorResponse) {
+          // Set backend errors to display
+          Object.keys(errorResponse).forEach(key => {
+            errors[key] = errorResponse[key];
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+    } finally {
+      setLoading(false); // Stop loading regardless of success or error
+    }
+  };
 
   return (
     <div>
       <>
-        <Nav />
+       {/* <div className='h-full pb-4'><Nav /></div> */}
         <section className="vh-100 bg-img">
           <div className="container h-100 d-flex justify-content-center align-items-center">
             <div className="col col-xl-5">
+              
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
+                  
                   <div className="col-md-12 d-flex align-items-center">
                     <div className="card-body p-4 p-lg-5 text-black">
+                      {loginMessage && <p style={{ color: 'red' }}>{loginMessage}</p>}  {/* Show the login message */}
                       <form onSubmit={handleSubmit}>
                         <div className="d-flex align-items-center mb-3 pb-1">
                           <i

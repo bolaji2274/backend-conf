@@ -1,27 +1,23 @@
-import { Navigate, useLocation} from 'react-router-dom'
-import { useContext } from 'react'
-import AuthContext from '../context/AuthContext'
+import React, { useContext } from 'react';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
-const PrivateRoute = ({children}) => {
-    // formal usage 
-    // let {user} = useContext(AuthContext)
-    // return <Route {...rest}> {!user ? <Navigate to="/login" /> : children } </Route>
+const ProtectedRoute = ({ children }) => {
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
 
-    
-    
-    // New Usage 
-    const { user } = useContext(AuthContext); // Get the user from the context
-    let location = useLocation();
-    // If the user is not authenticated, redirect to the login page
-    if (!user) {
-        return <>
-    
-             <Navigate to="/login" state={{ from: location }} replace />;
-        </> 
-       
-    } 
+  if (!user) {
+    // Redirect to login and store the path they were trying to access
+    return (
+      <Navigate 
+        to="/login" 
+        state={{ from: location.pathname, message: "You must log in first to access this page." }} 
+        replace 
+      />
+    );
+  }
 
-    // If the user is authenticated, render the children
-    return children;
-}
-export default PrivateRoute
+  return children ? children : <Outlet />;
+};
+
+export default ProtectedRoute;

@@ -33,7 +33,7 @@ function RegisterPage() {
 
   return (
     <div>
-      <Nav />
+       {/* <div className='h-full pb-4'><Nav /></div> */}
       <section className="vh-70 bg-img">
         <div className="container py-5 h-100 d-flex justify-content-center align-items-center">
           <div className="card register-card" style={{ borderRadius: "1rem" }}>
