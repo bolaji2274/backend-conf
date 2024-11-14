@@ -2,8 +2,8 @@
 .navbar {
     background-color: #f8f9fa;
     padding: 5px 10px;
-    /* position: sticky !important; */
-    position: relative !important;
+    position: sticky !important;
+    /* position: relative !important; */
     z-index: 10 !important; /* Ensure navbar sits above the main content */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
