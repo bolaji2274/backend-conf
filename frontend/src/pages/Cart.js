@@ -26,7 +26,7 @@ const Cart = () => {
 
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       <div className='w-full h-full mt-12 mb-12'>
         <motion.div
           className="bg-gray-800 m-8 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700"

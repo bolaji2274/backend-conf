@@ -30,7 +30,7 @@ const StoreProduct = () => {
 
   return (
     <>
-    <Nav />
+    {/* <Nav /> */}
       <div className="product-list-container">
       
       <motion.h2

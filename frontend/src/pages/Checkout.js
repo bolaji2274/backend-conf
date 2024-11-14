@@ -62,7 +62,7 @@ const Checkout = () => {
 
   return (
     <>
-      <Nav />
+      {/* <Nav />  */}
       <div className='w-full h-full mt-12 mb-12'>
         <motion.div
           className="checkout-container"
