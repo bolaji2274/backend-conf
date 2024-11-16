@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext.js';
-import Nav from '../../pages/Nav.js';
+// import Nav from '../../pages/Nav.js';
+import Nav from '../Nav.jsx';
 import '../../styles/register.css';
 import Loading from '../../context/Loading.jsx';
 
@@ -33,7 +34,7 @@ function RegisterPage() {
 
   return (
     <div>
-       {/* <div className='h-full pb-4'><Nav /></div> */}
+       <div className='h-full pb-4'><Nav /></div>
       <section className="vh-70 bg-img">
         <div className="container py-5 h-100 d-flex justify-content-center align-items-center">
           <div className="card register-card" style={{ borderRadius: "1rem" }}>

@@ -4,7 +4,8 @@ import { Typography, Button, List, ListItem, ListItemText, TextField, Divider, B
 import { motion } from 'framer-motion';
 import { removeFromCart, updateQuantity } from '../store/CartSlice';
 import { useNavigate } from 'react-router-dom';
-import Nav from './Nav';
+// import Nav from './Nav';
+import Nav from '../components/Nav';
 import AppFooter from './AppFooter';
 import { PaystackButton } from 'react-paystack';
 import AuthContext from '../context/AuthContext'; // Import AuthContext for user authentication
@@ -62,7 +63,7 @@ const Checkout = () => {
 
   return (
     <>
-      {/* <Nav />  */}
+      <Nav /> 
       <div className='w-full h-full mt-12 mb-12'>
         <motion.div
           className="checkout-container"

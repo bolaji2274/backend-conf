@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext.js';
 import '../../styles/login.css';
-import Nav from '../../pages/Nav.js';
+// import Nav from '../../pages/Nav.js';
+import Nav from '../Nav.jsx';
 import Loading from '../../context/Loading.jsx';
 
 function LoginPage() {
@@ -49,7 +50,7 @@ function LoginPage() {
   return (
     <div>
       <>
-       {/* <div className='h-full pb-4'><Nav /></div> */}
+       <div className='h-full pb-4'><Nav /></div>
         <section className="vh-100 bg-img">
           <div className="container h-100 d-flex justify-content-center align-items-center">
             <div className="col col-xl-5">

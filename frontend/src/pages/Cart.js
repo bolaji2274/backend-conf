@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity, clearCart } from '../store/CartSlice';
 import { Typography, Button, List, ListItem, ListItemText, TextField, Box, ListItemAvatar, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Nav from './Nav';
+// import Nav from './Nav';
+import Nav from '../components/Nav';
 
 
 const Cart = () => {
@@ -26,7 +27,7 @@ const Cart = () => {
 
   return (
     <>
-      {/* <Nav /> */}
+      <Nav />
       <div className='w-full h-full mt-12 mb-12'>
         <motion.div
           className="bg-gray-800 m-8 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700"
