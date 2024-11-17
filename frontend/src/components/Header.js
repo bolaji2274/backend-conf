@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -37,6 +38,17 @@ const toggleMenu = () => {
         <nav>
             <div>
             <a href="" className="text-2xl font-semibold flex items-center space-x-3"> <img src="" alt="logo" className="w-10 inline-block items-center"/> <span> NASFARM </span></a>
+                  {/* nav items for large devices */}
+                  <ul className="md:flex space-x-12 hidden ">
+                    {
+                      navItems.map(({link, path}) => <Link to={path} spy={true} smooth={true} offset={-100} key={path} className="block text-base text-[#18191f] hover:text-[#49dc7c]">{link}</Link>)
+                    }
+                  </ul>
+
+                  {/* btn for large devices  */}
+                  <div className="space-x-12 hidden lg:flex items-center">
+                    <a href="/" className="hidden lg:flex items-center text-[#49dc7c] hover:text-gray-700">Login</a>
+                  </div>
             </div>
         </nav>
       <nav className={isSticky ? "sticky" : ""}>
