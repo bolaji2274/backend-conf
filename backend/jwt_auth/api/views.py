@@ -20,6 +20,7 @@ from django.db.models import Count, Sum
 from .models import Sale, Product, Profile, User, Application, ContactMessage
 from .serializer import ProductSerializer, ApplicationSerializer, ContactMessageSerializer
 from django.core.mail import send_mail
+from rest_framework.throttling import AnonRateThrottle
 import logging
 
 from rest_framework.decorators import api_view
@@ -485,6 +486,9 @@ class SalesDataView(APIView):
 
             # Contact Form View 
 class ContactFormView(APIView):
+    permission_classes = [AllowAny]
+    
+    throttle_classes = [AnonRateThrottle]
     def post(self, request):
         serializer = ContactMessageSerializer(data=request.data)
         if serializer.is_valid():
