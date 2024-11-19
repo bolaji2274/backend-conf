@@ -1,6 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Use Link to enable routing
+import { motion } from 'framer-motion';
+import { Nav } from "react-bootstrap";
+import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from "react-scroll";
 import chicken3 from '../assets/images/chicken-3.jpg';
+
 
 function About() {
   return (
@@ -54,9 +58,15 @@ function About() {
         <p className="text-lg mb-6">
           Ready to grow your farm? Connect with us and start your journey to success.
         </p>
-        <Link to="/contact" className="px-6 py-3 bg-white text-blue-600 font-bold rounded-md hover:bg-blue-700 transition duration-300">
-          Contact Us
-        </Link>
+     
+      <Nav.Link as={ScrollLink} to="contact" smooth={true} duration={200}>
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    className="px-6 py-3 rounded-md bg-white text-blue-600 font-bold"
+                >
+                    Contact Us
+                </motion.button>
+        </Nav.Link>
       </section>
     </div>
   );

@@ -26,11 +26,14 @@ import AddProductForm from "../products/AddProductForm.js";
 import Testimonials from "./Testimonials.js";
 import Team from "./Team.js";
 
+import AdminContactMessages from "../components/AdminContactMessage.js";
+
 const Home = () => {
   return (
     <>
       <Nav />
       <HeroCarousel />
+      {/* <AdminContactMessages /> */}
       <AboutUsPage />
 
       <Element name="product">

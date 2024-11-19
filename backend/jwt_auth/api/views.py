@@ -489,6 +489,12 @@ class ContactFormView(APIView):
     permission_classes = [AllowAny]
     
     throttle_classes = [AnonRateThrottle]
+    
+    def get(self, request):
+        messages = ContactMessage.objects.all().order_by('-created_at')
+        serializer = ContactMessageSerializer(messages, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     def post(self, request):
         serializer = ContactMessageSerializer(data=request.data)
         if serializer.is_valid():
