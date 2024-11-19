@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
-from .models import Sale, Product, Application
+from .models import Sale, Product, Application, ContactMessage
 
 class UserSerializer(serializers.ModelSerializer):
     
@@ -54,6 +54,13 @@ class SaleSerializer(serializers.ModelSerializer):
         model = Sale
         fields = ['id', 'user', 'product', 'total_price', 'date']
  
+        # Contact Message 
+class ContactMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactMessage
+        fields = '__all__'
+        
+        
 class ProfitSharingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfitSharing

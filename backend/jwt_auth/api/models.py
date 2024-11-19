@@ -151,6 +151,16 @@ class Sale(models.Model):
     def __str__(self):
         return f'Sale {self.id} - {self.total_price}'
 
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=20)
+    service = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 class ProfitSharing(models.Model):
     farmer = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -17,8 +17,9 @@ from rest_framework import status
 from .permissions import IsProfileAdmin
 from django.shortcuts import get_object_or_404
 from django.db.models import Count, Sum
-from .models import Sale, Product, Profile, User, Application
-from .serializer import ProductSerializer, ApplicationSerializer
+from .models import Sale, Product, Profile, User, Application, ContactMessage
+from .serializer import ProductSerializer, ApplicationSerializer, ContactMessageSerializer
+from django.core.mail import send_mail
 import logging
 
 from rest_framework.decorators import api_view
@@ -481,6 +482,23 @@ class SalesDataView(APIView):
     def get(self, request):
         sales_data = Order.objects.values('created_at').annotate(total_sales=Sum('quantity'))
         return Response(sales_data)
+
+            # Contact Form View 
+class ContactFormView(APIView):
+    def post(self, request):
+        serializer = ContactMessageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            # Send email notification
+            send_mail(
+                subject=f"New Contact Form Submission: {serializer.validated_data['name']}",
+                message=f"Message from {serializer.validated_data['email']}:\n\n{serializer.validated_data['message']}",
+                # from_email='noreply@nasfarm.com',
+                from_email='hammedbolajihammed@gmail.com',
+                recipient_list=['hbolaji348@gmail.com'],
+            )
+            return Response({"message": "Message sent successfully!"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class InventoryTrendsView(APIView):
     permission_classes = [IsAuthenticated]

@@ -7,6 +7,7 @@ from .views import SalesAnalysisView, CustomerAnalysisView, PerformanceMetricsVi
 from .views import overview_dashboard, ProductDashboardView, get_user_role, ApplicationCreateView, ProductDetailView
 from .views import OrderManagementView, CustomerOrderView
 from .views import resend_verification_email
+from .views import ContactFormView
 
 
 from rest_framework.routers import DefaultRouter
@@ -49,6 +50,7 @@ urlpatterns = [
     path('users/', UserListView.as_view(), name='user-list'),
     path('orders/', CustomerOrderView.as_view(), name='order-list'),
     path('admin/orders/', OrderManagementView.as_view(), name='order-management'),
+    path('contact/', ContactFormView.as_view(), name='contact_form'),
     path("initialize-payment/", views.initialize_payment, name="initialize_payment"),
     path("verify-payment/<str:reference>/", views.verify_payment, name="verify_payment"),
 ]

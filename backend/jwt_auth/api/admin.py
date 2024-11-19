@@ -1,6 +1,10 @@
 from django.contrib import admin
 from api.models import User, Profile
 from .models import Livestock, Order, Notification, Profile, Product, Application
+from django.contrib import admin
+from .models import ContactMessage
+
+
 
 # Register the Livestock model
 
@@ -32,6 +36,11 @@ class OrderAdmin(admin.ModelAdmin):
 class NotificationAdmin(admin.ModelAdmin):
     list_display = ['customer', 'message', 'created_at']
     search_fields = ['customer__email', 'message']
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'service', 'created_at')
+    search_fields = ('name', 'email', 'message')
 # Register your models here.
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -40,6 +49,9 @@ class UserAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     list_editable = ['verified']
     list_display = ['user', 'full_name', 'verified']
+    
+
+
     
 
 # admin.site.register(User, UserAdmin)
