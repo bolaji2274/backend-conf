@@ -8,9 +8,6 @@ import servicesImage from '../assets/images/chicken-3.jpg'
 function Services() {
   return (
     <div>
-   
-
-
                   {/* Services Section */}
             <section className="bg-gray-100 py-16">
                 <div className="max-w-6xl mx-auto text-center">
