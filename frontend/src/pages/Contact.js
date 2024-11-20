@@ -119,9 +119,9 @@ function Contact() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert('Message sent successfully!');
+        // alert('Message sent successfully!');
         swal.fire({
-                    title: "Your message has been sent successfully",
+                    title: "Your message has been sent successfully, You will soon get a feed back from us",
                     icon: "success",
                     toast: true,
                     timer: 6000,
@@ -131,7 +131,7 @@ function Contact() {
                 });
         setFormData({ name: '', phone: '', service: '', email: '', message: '' });
       } else {
-        alert('Failed to send message. Please try again.');
+        // alert('Failed to send message. Please try again.');
         swal.fire({
                     title: "Failed to send message. Please try again.",
                     icon: "error",
