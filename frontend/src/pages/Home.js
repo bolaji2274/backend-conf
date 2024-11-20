@@ -8,7 +8,7 @@ import chicken from "../assets/images/chicken-coop.jpg"; // Replace with the pat
 import "./Home.css"; // Custom CSS for extra styling
 import Footer from "./Footer";
 import Navbar from "../views/Navbar";
-import Header from "../views/Header";
+// import Header from "../views/Header";
 import About from "../pages/About.js";
 import AppFooter from "./AppFooter.js";
 import Contact from "./Contact.js";
@@ -25,6 +25,7 @@ import HeroCarousel from "./HeroCarousel.js";
 import AddProductForm from "../products/AddProductForm.js";
 import Testimonials from "./Testimonials.js";
 import Team from "./Team.js";
+import Header from '../components/Header.js'
 
 import AdminContactMessages from "../components/AdminContactMessage.js";
 
@@ -32,8 +33,10 @@ const Home = () => {
   return (
     <>
       <Nav />
+        {/* <Header /> */}
       <HeroCarousel />
       {/* <AdminContactMessages /> */}
+    
       <AboutUsPage />
 
       <Element name="product">

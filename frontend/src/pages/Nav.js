@@ -64,9 +64,26 @@ const Navbars = () => {
     <nav className="navbar">
       <div className="container cont" style={{ zIndex: isOpen ? 10 : 1 }}>
         <div className="brand">
-          <Link to="/">
+           <Link
+            to="/"
+            className="text-2xl font-semibold flex items-center space-x-3"
+          >
+            <img
+              src={logo} // Replace with your logo path
+              alt="logo"
+              className="w-10 inline-block rounded-full"
+            />
+            {/* <span>NASFARM</span> */}
             <h2 className='text-2xl text-white'>Nas<span className='text-3xl text-green-500'>Farm</span></h2>
           </Link>
+          {/* <Link to="/">
+          <img
+              src={logo} // Replace with your logo path
+              alt="logo"
+              className="w-10 inline-block rounded-full"
+            />
+            <h2 className='text-2xl text-white'>Nas<span className='text-3xl text-green-500'>Farm</span></h2>
+          </Link> */}
         </div>
         <li className="cart-icon-container lg:ml-4 md:ml-4">
           <Link to="/cart" className="cart-icon lg:ml-4 md:ml-4">
