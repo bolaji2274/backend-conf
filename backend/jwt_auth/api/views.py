@@ -490,10 +490,16 @@ class ContactFormView(APIView):
     
     throttle_classes = [AnonRateThrottle]
     
+    # def get(self, request):
+    #     messages = ContactMessage.objects.all().order_by('-created_at')
+    #     serializer = ContactMessageSerializer(messages, many=True)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
     def get(self, request):
+        # Ensure only admin users can access this endpoint
+        if not request.user.is_staff:
+            return Response({"detail": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
+
         messages = ContactMessage.objects.all().order_by('-created_at')
-        serializer = ContactMessageSerializer(messages, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         serializer = ContactMessageSerializer(data=request.data)
