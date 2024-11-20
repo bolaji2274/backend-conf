@@ -72,7 +72,8 @@ const Cart = () => {
                     color: '#FFFFFF',
                     marginLeft: '10px'
                   }}
-                  onClick={() => dispatch(removeFromCart(item))}
+                  // onClick={() => dispatch(removeFromCart(item))}
+                  onClick={() => dispatch(removeFromCart({ id: item.id }))}
                 >
                   Remove
                 </Button>

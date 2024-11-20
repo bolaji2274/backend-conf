@@ -499,16 +499,22 @@ class ContactFormView(APIView):
         serializer = ContactMessageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            # Send email notification
-            send_mail(
-                subject=f"New Contact Form Submission: {serializer.validated_data['name']}",
-                message=f"Message from {serializer.validated_data['email']}:\n\n{serializer.validated_data['message']}",
-                # from_email='noreply@nasfarm.com',
-                from_email='hammedbolajihammed@gmail.com',
-                recipient_list=['hbolaji348@gmail.com', 'hammedbolajihammed@gmail.com'],
-            )
             return Response({"message": "Message sent successfully!"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def post(self, request):
+    #     serializer = ContactMessageSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         # Send email notification
+    #         send_mail(
+    #             subject=f"New Contact Form Submission: {serializer.validated_data['name']}",
+    #             message=f"Message from {serializer.validated_data['email']}:\n\n{serializer.validated_data['message']}",
+    #             # from_email='noreply@nasfarm.com',
+    #             from_email='hammedbolajihammed@gmail.com',
+    #             recipient_list=['hbolaji348@gmail.com', 'hammedbolajihammed@gmail.com'],
+    #         )
+    #         return Response({"message": "Message sent successfully!"}, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class InventoryTrendsView(APIView):

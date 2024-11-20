@@ -22,14 +22,20 @@ const ProductList = () => {
     setQuantities({ ...quantities, [id]: quantity });
   };
 
- const handleAddToCart = (product) => {
-    const quantity = quantities[product.id];
-    // Prevent adding to cart if quantity is 0 or empty
-    if (quantity && quantity > 0 && quantity <= product.stock) {
-      dispatch(addToCart({ ...product, quantity }));
-    }
-  };
-
+//  const handleAddToCart = (product) => {
+//     const quantity = quantities[product.id];
+//     // Prevent adding to cart if quantity is 0 or empty
+//     if (quantity && quantity > 0 && quantity <= product.stock) {
+//       dispatch(addToCart({ ...product, quantity }));
+//     }
+//   };
+  const handleAddToCart = (product) => {
+  const quantity = quantities[product.id];
+  // Prevent adding to cart if quantity is 0 or empty
+  if (quantity && quantity > 0 && quantity <= product.stock) {
+    dispatch(addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, stock: product.stock, quantity }));
+  }
+};
   return (
     <div className="product-list-container">
      
