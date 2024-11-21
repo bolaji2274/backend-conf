@@ -3,11 +3,14 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { getContactMessage } from "../../../context/allApi";
 import Spinner from '../../../pages/Spinner.js'
+import { useDispatch } from "react-redux";
+import { addNotification } from "../../../store/notificationSlice.js";
 
 import Sidebar from "../common/Sidebar";
 import Header from "../common/Header";
 
 function AdminContactMessages() {
+  const dispatch = useDispatch();
   const [messages, setMessages] = useState([]);
   const [filteredMessages, setFilteredMessages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,6 +23,11 @@ function AdminContactMessages() {
         const response = await getContactMessage();
         setMessages(response.data);
         setFilteredMessages(response.data);
+
+        // Simulate new notifications for fetched messages
+        if (response.data.length > 0) {
+          dispatch(addNotification());
+        }
       } catch (error) {
         console.error("Error fetching messages:", error);
       } finally {

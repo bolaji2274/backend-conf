@@ -2,18 +2,22 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext.js';
 import '../../styles/login.css';
-// import Nav from '../../pages/Nav.js';
 import Nav from '../Nav.jsx';
 import Loading from '../../context/Loading.jsx';
+// React Icons and Lucide React Icons
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // React Icons
+import { Eye, EyeOff } from 'lucide-react'; // Lucide React
 
 function LoginPage() {
   const { loginUser, errors, clearErrors, authTokens } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
   const navigate = useNavigate();
   const location = useLocation();
 
   // Check if there's a message to show from the ProtectedRoute redirection
   const loginMessage = location.state?.message || "";
+
   // Check if user is already logged in, and if so, redirect
   useEffect(() => {
     if (authTokens) {
@@ -50,14 +54,12 @@ function LoginPage() {
   return (
     <div>
       <>
-       <div className='h-full pb-4'><Nav /></div>
+        <div className='h-full pb-4'><Nav /></div>
         <section className="vh-100 bg-img">
           <div className="container h-100 d-flex justify-content-center align-items-center">
             <div className="col col-xl-5">
-              
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
-                  
                   <div className="col-md-12 d-flex align-items-center">
                     <div className="card-body p-4 p-lg-5 text-black">
                       {loginMessage && <p style={{ color: 'red' }}>{loginMessage}</p>}  {/* Show the login message */}
@@ -88,17 +90,39 @@ function LoginPage() {
                           <label className="form-label" htmlFor="form2Example27">
                             Password
                           </label>
-                          <input
-                            type="password"
-                            id="form2Example27"
-                            className="form-control form-control-lg"
-                            name="password"
-                          />
+                          <div className="input-group">
+                            <input
+                              type={showPassword ? "text" : "password"}
+                              id="form2Example27"
+                              className="form-control form-control-lg"
+                              name="password"
+                            />
+                            <button
+                              type="button"
+                              className="btn btn-outline-secondary"
+                              onClick={() => setShowPassword(!showPassword)}
+                              style={{
+                                borderTopLeftRadius: 0,
+                                borderBottomLeftRadius: 0,
+                                padding: "0.5rem",
+                              }}
+                            >
+                              {showPassword ? (
+                                <>
+                                  <EyeOff size={20} className="me-2" /> {/* Lucide React Icon */}
+                                </>
+                              ) : (
+                                <>
+                                  <Eye size={20} className="me-2" /> {/* Lucide React Icon */}
+                                </>
+                              )}
+                            </button>
+                          </div>
                           {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                         </div>
                         <div className='d-flex justify-content-center mt-4 mb-4'>
-                         {loading && <Loading/>}
-                    </div>
+                          {loading && <Loading />}
+                        </div>
                         <div className="pt-1 mb-4 d-flex justify-content-center">
                           <button
                             className="btn btn-dark btn-lg btn-block submit-button submit-btn"
