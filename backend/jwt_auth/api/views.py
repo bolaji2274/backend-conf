@@ -496,12 +496,29 @@ class ContactFormView(APIView):
     #     return Response(serializer.data, status=status.HTTP_200_OK)
     
     # getting the notfication messages by the admin or authorized user
-    def get(self, request):
-        # Ensure only admin users can access this endpoint
-        if not request.user.is_staff:
-            return Response({"detail": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
+    # def get(self, request):
+    #     # Ensure only admin users can access this endpoint
+    #     if not request.user.is_staff:
+    #         return Response({"detail": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
 
-        messages = ContactMessage.objects.all().order_by('-created_at')
+    #     messages = ContactMessage.objects.all().order_by('-created_at')
+    
+    def get(self, request):
+        try:
+            # Optional: Ensure only staff/admin users can fetch messages
+            if not request.user.is_staff:
+                return Response({"detail": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
+            
+            # Fetch all contact messages
+            messages = ContactMessage.objects.all().order_by('-created_at')
+            serializer = ContactMessageSerializer(messages, many=True)
+            
+            # Return serialized messages
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            # Handle unexpected errors
+            return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
     def post(self, request):
         serializer = ContactMessageSerializer(data=request.data)
