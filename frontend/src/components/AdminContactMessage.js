@@ -1,34 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { getContactMessage } from '../context/allApi';
 
 function AdminContactMessages() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await getContactMessage();
+        // console.log(response.data);
+        setMessages(response.data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchMessages();
   }, []);
-
-  const fetchMessages = async () => {
-    try {
-      const response = await fetch('https://api-bkrt.onrender.com/api/contact/', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setMessages(data);
-      } else {
-        console.error('Failed to fetch messages');
-      }
-    } catch (error) {
-      console.error('Error fetching messages:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">

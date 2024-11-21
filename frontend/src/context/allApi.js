@@ -23,6 +23,10 @@ export const deleteProduct = () => api.delete('/products/${id}/');
 // Get all orders (admin)
 export const getAllOrders = () => api.get('/admin/orders/');
 
+// get all the contact message 
+
+export const getContactMessage = () => api.get('/contact/');
+
 // Update order status (admin)
 export const updateOrderStatus = (orderId, status) =>
   api.post('/admin/orders/', { order_id: orderId, status });

@@ -50,6 +50,8 @@ import AppFooter from "./pages/AppFooter";
 import ProductDescription from "./pages/ProductDescription";
 import EmailVerification from "./email/EmailVerification";
 import LogoutPage from "./components/Auth.Route/Logout";
+// import AdminContactMessages from "./components/AdminContactMessage";
+import AdminContactMessages from "./components/AdminDashboard/messages/ContactMessages";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
@@ -103,6 +105,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/users" element={<UsersPage />} />
             <Route path="/sales" element={<SalesPage />} />
+            <Route path="/contact/messages" element={<AdminContactMessages />} />
             <Route path="/orders" element={<OrdersPage />} />
             <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="/settings" element={<SettingsPage />} />

@@ -506,7 +506,7 @@ class ContactFormView(APIView):
     def get(self, request):
         try:
             # Optional: Ensure only staff/admin users can fetch messages
-            if not request.user.is_staff:
+            if not request.user.is_admin:
                 return Response({"detail": "Permission denied."}, status=status.HTTP_403_FORBIDDEN)
             
             # Fetch all contact messages
