@@ -14,7 +14,7 @@ from rest_framework.pagination import PageNumberPagination
 from django.utils import timezone
 from datetime import timedelta
 from rest_framework import status
-from .permissions import IsProfileAdmin
+from .permissions import IsAdminPermission
 from django.shortcuts import get_object_or_404
 from django.db.models import Count, Sum
 from .models import Sale, Product, Profile, User, Application, ContactMessage
@@ -247,7 +247,7 @@ class CustomerOrderView(APIView):
             return Response({"detail": "Order not found"}, status=status.HTTP_404_NOT_FOUND)
 
 class OrderManagementView(APIView):
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsAdminPermission]
 
     def get(self, request):
         # Get all orders for admin management

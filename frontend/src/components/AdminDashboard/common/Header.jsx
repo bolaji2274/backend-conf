@@ -10,6 +10,7 @@ const Header = ({ title }) => {
   const dispatch = useDispatch();
 
   const unreadCount = useSelector((state) => state.notifications.unreadCount);
+  // const { unreadCount } = useSelector((state) => state.notifications || { unreadCount: 0 });
 
   const handleBellClick = () => {
     dispatch(clearNotifications()); // Clear notifications on click
