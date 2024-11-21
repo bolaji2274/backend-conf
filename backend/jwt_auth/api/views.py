@@ -494,6 +494,8 @@ class ContactFormView(APIView):
     #     messages = ContactMessage.objects.all().order_by('-created_at')
     #     serializer = ContactMessageSerializer(messages, many=True)
     #     return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    # getting the notfication messages by the admin or authorized user
     def get(self, request):
         # Ensure only admin users can access this endpoint
         if not request.user.is_staff:
