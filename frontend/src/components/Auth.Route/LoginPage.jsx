@@ -5,7 +5,7 @@ import '../../styles/login.css';
 import Nav from '../Nav.jsx';
 import Loading from '../../context/Loading.jsx';
 // React Icons and Lucide React Icons
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // React Icons
+// import { FaEye, FaEyeSlash } from 'react-icons/fa'; // React Icons
 import { Eye, EyeOff } from 'lucide-react'; // Lucide React
 
 function LoginPage() {

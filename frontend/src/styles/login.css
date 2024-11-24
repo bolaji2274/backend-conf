@@ -9,6 +9,7 @@
 }
 .bg-img {
     background-image: url('../assets/images/chicken-3.jpg');
+    object-fit: cover;
 }
 .mail, .pass {
     font-family: "Raleway", sans-serif;

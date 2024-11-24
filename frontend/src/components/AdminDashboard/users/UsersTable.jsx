@@ -26,6 +26,9 @@ const UsersTable = () => {
 
       const data = await response.json();
 
+      console.log(data);
+      
+
       // Sort the users based on sortOrder
       const sortedData = data.sort((a, b) => {
         if (sortOrder === "newest") {
@@ -105,7 +108,7 @@ const UsersTable = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Email</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Role</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Date Joined</th>
             </tr>
           </thead>
 
@@ -144,9 +147,10 @@ const UsersTable = () => {
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <a href={`/users/edit/${user.id}`} className="text-blue-500 hover:text-blue-400">Edit</a>
+                  <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{new Date(user.date_joined).toLocaleDateString()}</td>
+                  {/* <a href={`/users/edit/${user.id}`} className="text-blue-500 hover:text-blue-400">Edit</a>
                   <span className="mx-2">|</span>
-                  <a href={`/users/delete/${user.id}`} className="text-red-500 hover:text-red-400">Delete</a>
+                  <a href={`/users/delete/${user.id}`} className="text-red-500 hover:text-red-400">Delete</a> */}
                 </td>
               </motion.tr>
             ))}
