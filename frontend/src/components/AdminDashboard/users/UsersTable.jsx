@@ -148,9 +148,6 @@ const UsersTable = () => {
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>{new Date(user.date_joined).toLocaleDateString()}</td>
-                  {/* <a href={`/users/edit/${user.id}`} className="text-blue-500 hover:text-blue-400">Edit</a>
-                  <span className="mx-2">|</span>
-                  <a href={`/users/delete/${user.id}`} className="text-red-500 hover:text-red-400">Delete</a> */}
                 </td>
               </motion.tr>
             ))}
