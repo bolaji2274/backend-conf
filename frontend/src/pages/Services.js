@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Container, Typography, Grid, Button, Box } from "@mui/material";
 
 import servicesImage from '../assets/images/chicken-3.jpg'
+import servicesImage2 from '../assets/nasImages/broilers_bg.jpg'
+import servicesImage3 from '../assets/nasImages/broilers.jpg'
 
 function Services() {
   return (
@@ -17,7 +19,7 @@ function Services() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Livestock Supply */}
                         <motion.div whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-lg">
-                            <img src={servicesImage} alt="Livestock" className="rounded-md h-48 w-full object-cover mb-4" />
+                            <img src={servicesImage3} alt="Livestock" className="rounded-md h-48 w-full object-cover mb-4" />
                             <h3 className="text-xl font-bold text-gray-700">High-Quality Livestock</h3>
                             <p className="text-gray-600 mt-2">
                                 Broilers, layers, and fish, raised under optimal conditions for farmers’ success.
@@ -33,7 +35,7 @@ function Services() {
                         </motion.div>
                         {/* Profit-Sharing */}
                         <motion.div whileHover={{ scale: 1.05 }} className="bg-white p-6 rounded-lg shadow-lg">
-                            <img src={servicesImage} alt="Profit Sharing" className="rounded-md h-48 w-full object-cover mb-4" />
+                            <img src={servicesImage2} alt="Profit Sharing" className="rounded-md h-48 w-full object-cover mb-4" />
                             <h3 className="text-xl font-bold text-gray-700">Profit-Sharing Programs</h3>
                             <p className="text-gray-600 mt-2">
                                 Join our profit-sharing model and grow without upfront capital investment.
