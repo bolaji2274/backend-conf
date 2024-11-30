@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-// import { Link, Element } from "react-scroll";
 import { Container, Typography, Grid, Button, Box } from "@mui/material";
 
 import servicesImage from '../assets/images/chicken-3.jpg'

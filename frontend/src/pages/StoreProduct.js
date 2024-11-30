@@ -1,4 +1,3 @@
-// ProductList.js
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Typography, Button, TextField } from "@mui/material";
@@ -39,7 +38,7 @@ const StoreProduct = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Here is a list of our best valuable livestock products
+          Here is a list of our best valuable products
         </motion.h2>
         <div className="product-grid">
           {products.map((product) => (

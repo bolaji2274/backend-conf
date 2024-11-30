@@ -1,6 +1,3 @@
-// src/components/ProductList.js
-// eslint-disable-next-line
-
 import React, { useState } from 'react';
 import { Typography, Button, TextField } from "@mui/material";
 import { motion } from "framer-motion";
