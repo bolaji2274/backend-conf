@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'jwt_auth.wsgi.application'
 # }
 # DATABASE_URL = 'postgresql://postgres:rsryyszTqRCPNagcSDTqOhzmuwXLZZUf@junction.proxy.rlwy.net:31419/railway'
 
-
+# postgresql://nasfarm_db_user:CvkJPmqws8yBaQe8OfVC9MRj0eZQJK7o@dpg-ct790od2ng1s73cbji8g-a.oregon-postgres.render.com/nasfarm_db
 
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
