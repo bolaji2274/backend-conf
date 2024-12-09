@@ -1,5 +1,3 @@
-// src/components/ProductDescription.js
-
 import React, { useState } from 'react';
 import { Typography, Button, TextField } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
