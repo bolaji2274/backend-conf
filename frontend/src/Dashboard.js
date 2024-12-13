@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import CustomerDashboard from './Dashboard/CustomerManagement';
 import CustomerDashboard from './Dashboard/CustomerDashboard/CustomerDashboard';
 import AdminDashboard from './Dashboard/AdminDashboard/AdminDashboard';
 import ReportingDashboard from './Dashboard/ReportingDashboard/ReportingDashboard';
