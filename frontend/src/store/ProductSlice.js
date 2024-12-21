@@ -7,6 +7,7 @@ import bird from '../assets/images/birds.jpg';
 import turkey from '../assets/images/turkey-2.jpg';
 
 // import catFish from '../assets/images/images.jpeg';
+
 import chicken from '../assets/images/chicken-5.jpg';
 import chick from '../assets/images/chick.jpg';
 import layer_chick from '../assets/images/chicken-2.jpg';
