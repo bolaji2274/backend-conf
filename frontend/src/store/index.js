@@ -9,6 +9,7 @@ export const store = configureStore({
     cart: cartReducer,
     products: productReducer,
     stores: storeReducer,
-    notifications: notificationsReducer, // Add notifications to the store
+    notifications: notificationsReducer, 
+    // Add notifications to the store
   },
 });

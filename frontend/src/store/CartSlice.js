@@ -3,6 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // Helper functions for loading and saving to local storage
+
 const loadCartFromLocalStorage = () => {
   const savedCart = localStorage.getItem('cart');
   return savedCart ? JSON.parse(savedCart) : { items: [] };
@@ -14,7 +15,8 @@ const saveCartToLocalStorage = (cart) => {
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: loadCartFromLocalStorage(), // Load initial state from local storage
+  initialState: loadCartFromLocalStorage(), 
+  // Load initial state from local storage
   reducers: {
     addToCart: (state, action) => {
       const { id, quantity } = action.payload;
