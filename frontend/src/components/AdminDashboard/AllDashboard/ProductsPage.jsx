@@ -28,7 +28,7 @@ const ProductsPage = () => {
 
 	if (!data) {
     return <div>
-			{/* Loading... */}
+			{/* Loading Spinner Func... */}
 			<Spinner/>
 	</div>;
   }

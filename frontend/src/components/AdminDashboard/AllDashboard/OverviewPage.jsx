@@ -9,7 +9,8 @@ import CategoryDistributionChart from "../overview/CategoryDistributionChart";
 import SalesChannelChart from "../overview/SalesChannelChart";
 import Sidebar from "../common/Sidebar";
 import { useState, useEffect } from "react";
-import api from "../../../context/api"; // Import the custom Axios instance
+import api from "../../../context/api"; 
+// Import the custom Axios instance
 
 const OverviewPage = () => {
   const [data, setData] = useState({
