@@ -76,7 +76,7 @@ const ProductDescription = () => {
         </Typography>
 
         {/* Quantity Input */}
-        <TextField
+        {/* <TextField
           label="Quantity"
           type="number"
           value={quantity}
@@ -85,17 +85,17 @@ const ProductDescription = () => {
           variant="outlined"
           size="small"
           className="w-full max-w-xs mx-auto lg:mx-0"
-        />
+        /> */}
 
         {/* Add to Cart Button */}
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           onClick={handleAddToCart}
           className="w-full max-w-xs mx-auto lg:mx-0"
         >
           Add to Cart
-        </Button>
+        </Button> */}
       </motion.div>
 
       {/* Full Description */}
