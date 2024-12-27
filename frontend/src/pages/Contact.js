@@ -92,6 +92,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import naslogo from '../assets/images/nasfarm-logo.jpg';
+import broiler from '../assets/nasImages/broilers_bg.jpg'
 
 const swal = require('sweetalert2')
 
@@ -167,7 +168,7 @@ function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img src={naslogo} className="rounded-lg shadow-md" alt="NasFarm Logo" />
+            <img src={broiler} className="rounded-lg shadow-md" alt="NasFarm Logo" />
           </motion.div>
           <motion.div
             className="bg-white p-6 shadow-lg rounded-lg"
