@@ -14,3 +14,17 @@ slick-carousel
 lucide-react
 framer-motion
 # https://api-bkrt.onrender.com/api/
+{
+    "redirects": [
+      {
+        "source": "/cpanel",
+        "destination": "http://154.16.200.39/cpanel",
+        "statusCode": 302
+      },
+      {
+        "source": "/cpanel/*",
+        "destination": "http://154.16.200.39/cpanel",
+        "statusCode": 302
+      }
+    ]
+}
