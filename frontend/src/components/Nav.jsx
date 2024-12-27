@@ -77,14 +77,15 @@ const Navbars = () => {
             <h2 className='text-2xl text-white'>Nas<span className='text-3xl text-green-500'>Farm</span></h2>
           </Link>
         </div>
-        <li className="cart-icon-container lg:ml-4 md:ml-4">
+          {/* This is the link to the cart item  */}
+        {/* <li className="cart-icon-container lg:ml-4 md:ml-4">
           <Link to="/cart" className="cart-icon lg:ml-4 md:ml-4">
             <FaShoppingCart size={24} color="white" className='lg:ml-4 md:ml-4'/>
             {cartItemCount > 0 && (
               <span className="cart-badge rounded-sm">{cartItemCount}</span>
             )}
           </Link>
-        </li>
+        </li> */}
        <div className="nav-right text-white">
             {token ? (
               <>

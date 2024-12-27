@@ -42,7 +42,7 @@ const ProductList = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
                 >
-                    Check Out Our Products Below 
+                    Check Out Our Best Quality Products Below 
                 </motion.h2>
        <div className="product-grid">
           {products.map((product) => (
@@ -60,7 +60,7 @@ const ProductList = () => {
                   </div>
                 </Link>
 
-                <TextField
+                {/* <TextField
                   label="Quantity"
                   type="number"
                   value={quantities[product.id] || ""}
@@ -69,9 +69,9 @@ const ProductList = () => {
                   variant="outlined"
                   size="small"
                   className='mr-4'
-                />
+                /> */}
 
-                <Button
+                {/* <Button
                   className='ml-4'
                   variant="contained"
                   color="primary"
@@ -79,7 +79,7 @@ const ProductList = () => {
                   disabled={!quantities[product.id] || quantities[product.id] <= 0} // Disable button for 0 or empty quantity
                 >
                   Add to Cart
-                </Button>
+                </Button> */}
               </div>
             </div>
           ))}
