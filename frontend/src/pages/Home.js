@@ -7,7 +7,7 @@ import { Container, Typography, Grid, Button, Box } from "@mui/material";
 import chicken from "../assets/images/chicken-coop.jpg"; // Replace with the path to your hero image
 import "./Home.css"; // Custom CSS for extra styling
 import Footer from "./Footer";
-import Navbar from "../views/Navbar";
+// import Navbar from "../views/Navbar";
 // import Header from "../views/Header";
 import About from "../pages/About.js";
 import AppFooter from "./AppFooter.js";
@@ -26,13 +26,15 @@ import AddProductForm from "../products/AddProductForm.js";
 import Testimonials from "./Testimonials.js";
 import Team from "./Team.js";
 import Header from '../components/Header.js'
+import Navbar from './Navbar/Navbar.jsx'
 
 import AdminContactMessages from "../components/AdminContactMessage.js";
 
 const Home = () => {
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
+      <Navbar />
         {/* <Header /> */}
       <HeroCarousel />
       {/* <AdminContactMessages /> */}
