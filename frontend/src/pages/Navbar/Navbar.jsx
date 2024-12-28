@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
+import { jwtDecode } from "jwt-decode";
+import { Link, useNavigate } from "react-router-dom";
 // import Logo from '../../assets/Logo.png'
 import Logo from '../../assets/images/nasfarm-logo.ico'
 import { ShoppingCart } from 'lucide-react'
-import { Link } from 'react-router-dom'
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import {  Nav, Button } from "react-bootstrap";
 import { Link as ScrollLink } from "react-scroll";
@@ -14,8 +15,21 @@ import AuthContext from '../../context/AuthContext';
 
 
 const Navbar = () => {
+    const { user, logoutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const userLogout = () => {
+      logoutUser();
+    //   dispatch(clearCart());
+      navigate("/logout");
+    };
   
+    const token = localStorage.getItem("authTokens");
+    let isAdmin = false;
   
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      isAdmin = decodedToken.is_admin;
+    }
   const [showMenu, setShowMenu] = useState(false)
 
 //   const {getTotalCartItems} = useContext(Shopcontext)
@@ -49,8 +63,18 @@ const Navbar = () => {
                     <Link><Nav.Link as={ScrollLink} to="services" smooth={true} duration={200}>Services</Nav.Link></Link>
                     <Link><Nav.Link as={ScrollLink} to="product" smooth={true} duration={200}>Products</Nav.Link></Link>
 
-                    <Link to='/login'><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Login</button></Link>
-                    
+                    {/* <Link to='/login'><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Login</button></Link> */}
+                    {token ? (
+                                  <>
+                                    <li><Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}>Dashboard</Link></li>
+                                    <li><Link onClick={userLogout} style={{ cursor: "pointer" }}>Logout</Link></li>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Button variant="outline-info" className="ms-2 m-btn" as={Link} to="/login">Login</Button>
+                                    <Button variant="outline-info" className="ms-2 m-btn" as={Link} to="/register">Register</Button>
+                                  </>
+                                )}
                 </ul>
             </nav>
             {/* <Link to='/cart' className='relative w-10'>
