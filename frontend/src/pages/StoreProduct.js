@@ -33,7 +33,7 @@ const StoreProduct = () => {
       <Nav />
       <div className="product-list-container mt-10">
         <motion.h2
-          className="text-4xl font-semibold text-gray-500 mb-4"
+          className="text-2xl font-semibold font-serif text-gray-700 text-center mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}

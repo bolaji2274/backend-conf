@@ -37,7 +37,7 @@ const ProductList = () => {
     <div className="product-list-container">
      
        <motion.h2
-                    className="text-4xl font-semibold text-gray-400 mb-6 mt-6 text-center "
+                    className="text-2xl font-semibold font-serif text-gray-700 mb-6 mt-6 text-center "
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
