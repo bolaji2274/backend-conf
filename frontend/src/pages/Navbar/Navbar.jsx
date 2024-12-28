@@ -46,7 +46,7 @@ const Navbar = () => {
                     className="text-2xl font-semibold flex items-center space-x-3"
                   >
                     <img
-                      src={Logo} // Replace with your logo path
+                      src={Logo} // NAsfarm logo path
                       alt="logo"
                       className="w-10 inline-block rounded-full"
                     />
@@ -64,6 +64,9 @@ const Navbar = () => {
                     <Link><Nav.Link as={ScrollLink} to="product" smooth={true} duration={200}>Products</Nav.Link></Link>
 
                     {/* <Link to='/login'><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Login</button></Link> */}
+                    <div className="ml-24">
+
+
                     {token ? (
                                   <>
                                     <Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Dashboard</button></Link>
@@ -75,6 +78,7 @@ const Navbar = () => {
                                     <Button variant="outline-info" className="ms-2 m-btn" as={Link} to="/register">Register</Button>
                                   </>
                                 )}
+                                            </div>
                 </ul>
             </nav>
             {/* <Link to='/cart' className='relative w-10'>
