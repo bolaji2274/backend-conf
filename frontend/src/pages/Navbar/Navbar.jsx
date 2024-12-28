@@ -66,8 +66,8 @@ const Navbar = () => {
                     {/* <Link to='/login'><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Login</button></Link> */}
                     {token ? (
                                   <>
-                                    <li><Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}>Dashboard</Link></li>
-                                    <li><Link onClick={userLogout} style={{ cursor: "pointer" }}>Logout</Link></li>
+                                    <Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"}><button className='bg-green-500 text-white px-4 py-1 rounded-md'>Dashboard</button></Link>
+                                    <Button onClick={userLogout} style={{ cursor: "pointer" }} variant="outline-info" className="ms-2 m-btn">Logout</Button>
                                   </>
                                 ) : (
                                   <>
