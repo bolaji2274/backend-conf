@@ -35,7 +35,8 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
                                           className="w-10 inline-block rounded-full"
                                         />
                     <div>
-                        <h1 className='text-green-300'>Welcome To NasFarm</h1>
+                        <h1 className='text-green-300'>Welcome To <span className='text-2xl text-black'>Nas<span className='text-3xl text-green-400'>Farm</span></span></h1>
+                        
                         {/* <h1 className='text-sm text-slate-500'>Premium User</h1> */}
                     </div>
                 </div>
