@@ -8,6 +8,7 @@ from .views import overview_dashboard, ProductDashboardView, get_user_role, Appl
 from .views import OrderManagementView, CustomerOrderView
 from .views import resend_verification_email
 from .views import ContactFormView
+from .serializer import ActivateAccountView
 
 
 from rest_framework.routers import DefaultRouter
@@ -53,4 +54,5 @@ urlpatterns = [
     path('contact/', ContactFormView.as_view(), name='contact_form'),
     path("initialize-payment/", views.initialize_payment, name="initialize_payment"),
     path("verify-payment/<str:reference>/", views.verify_payment, name="verify_payment"),
+    path("activate/<uidb64>/<token>", ActivateAccountView.as_view(), name="activate")
 ]

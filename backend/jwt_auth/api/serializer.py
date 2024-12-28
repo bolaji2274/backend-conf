@@ -6,6 +6,19 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from .models import Sale, Product, Application, ContactMessage
+from rest_framework.response import Response
+from rest_framework import status
+from django.shortcuts import render
+
+
+# for sending email and generate token
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from .utils import TokenGenerator, generate_token
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.views.generic import View
 
 class UserSerializer(serializers.ModelSerializer):
     
@@ -175,7 +188,37 @@ class RegisterSerializer(serializers.ModelSerializer):
             last_name=validated_data['last_name'],
             farm_branch_name=validated_data['farm_branch_name'],
             phone_number=validated_data['phone_number'],
-            password=validated_data['password']
+            password=validated_data['password'],
+            is_active=False
         )
-        
+
+        # generate token for sending mail
+        email_subject="Activate your Account"
+        message=render_to_string(
+            "activate.html",
+            {
+            'user':user,
+            'domain': 'api-bkrt.onrender.com',
+            'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+            'token':generate_token.make_token(user)
+            }
+        )
+        email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[validated_data['email']])
+        email_message.send()
         return user
+    
+class ActivateAccountView(View):
+    def get(self, request, uidb64, token):
+        try:
+            uid=force_text(urlsafe_base64_decode(uidb64))
+            user=User.objects.all(pk=uid)
+        except Exception as identifier:
+            user=None
+        if user is not None and generate_token.check_token(user, token):
+            user.is_active=True
+            user.save()
+            return render(request, "activatesuccess.html")
+            # message={"details":"Account is Activated."}
+            # return Response(message, status=status.HTTP_200_OK)
+        else: 
+            return render(request, "activatefail.html")
