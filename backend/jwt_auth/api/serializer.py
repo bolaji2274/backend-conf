@@ -203,6 +203,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             'token':generate_token.make_token(user)
             }
         )
+        print(message)
         email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[validated_data['email']])
         email_message.send()
         return user
