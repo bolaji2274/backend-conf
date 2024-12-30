@@ -91,7 +91,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-// import naslogo from '../assets/images/nasfarm-logo.jpg';
 import broiler from '../assets/nasImages/broilers_bg.jpg'
 
 const swal = require('sweetalert2')

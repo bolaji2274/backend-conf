@@ -4,7 +4,6 @@ import { Typography, Button, List, ListItem, ListItemText, TextField, Divider, B
 import { motion } from 'framer-motion';
 import { removeFromCart, updateQuantity } from '../store/CartSlice';
 import { useNavigate } from 'react-router-dom';
-// import Nav from './Nav';
 import Nav from '../components/Nav';
 import AppFooter from './AppFooter';
 import { PaystackButton } from 'react-paystack';
