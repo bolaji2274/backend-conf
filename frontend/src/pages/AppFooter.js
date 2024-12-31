@@ -7,7 +7,7 @@ function AppFooter() {
   return (
     <div>
       <>
-        {/* info section */}
+        
         <section className="info_section">
           <div className="container">
             <div className="info_top">

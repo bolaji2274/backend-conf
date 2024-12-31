@@ -8,7 +8,7 @@ import HeroCarousel from './HeroCarousel';
 function Hero() {
   return (
     <div>
-        {/* <HeroCarousel/> */}
+    
       <Box
         className="hero"
         style={{ backgroundImage: `url(${chicken})`, width: "100%" }}
