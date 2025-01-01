@@ -10,8 +10,6 @@ import { Link as ScrollLink } from "react-scroll";
 import ResponsiveMenu from './ResponsiveMenu';
 import AuthContext from '../../context/AuthContext';
 
-// import { Shopcontext } from '../../Context/ShopContext';
-// import { Shopcontext } from '../../context/ShopContext'
 
 
 const Navbar = () => {
