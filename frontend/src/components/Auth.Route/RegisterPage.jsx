@@ -153,22 +153,22 @@ function RegisterPage() {
                       <label className="form-label" htmlFor="password2">Confirm Password</label>
                       <div className="input-group">
                         <input
-                          type={showPassword2 ? "text" : "password"}
+                          type={showPassword ? "text" : "password"}
                           id="password2"
                           className="form-control form-control-lg"
-                          onChange={(e) => setPassword2(e.target.value)}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                         <button
                           type="button"
                           className="btn btn-outline-secondary"
-                          onClick={() => setShowPassword2(!showPassword2)}
+                          onClick={() => setShowPassword(!showPassword)}
                           style={{
                             borderTopLeftRadius: 0,
                             borderBottomLeftRadius: 0,
                             padding: "0.5rem",
                           }}
                         >
-                          {showPassword2 ? (
+                          {showPassword ? (
                             <EyeOff size={20} className="me-2" />
                           ) : (
                             <Eye size={20} className="me-2" />
