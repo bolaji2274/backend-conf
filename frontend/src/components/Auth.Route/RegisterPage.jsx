@@ -16,7 +16,7 @@ function RegisterPage() {
   const [password2, setPassword2] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false); // Show password toggle state
-  const [showPassword2, setShowPassword2] = useState(false); // Show confirm password toggle state
+  // const [showPassword2, setShowPassword2] = useState(false); // Show confirm password toggle state
 
   const { registerUser, errors, clearErrors } = useContext(AuthContext);
 
@@ -156,7 +156,7 @@ function RegisterPage() {
                           type={showPassword ? "text" : "password"}
                           id="password2"
                           className="form-control form-control-lg"
-                          onChange={(e) => setPassword(e.target.value)}
+                          onChange={(e) => setPassword2(e.target.value)}
                         />
                         <button
                           type="button"

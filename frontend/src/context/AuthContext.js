@@ -99,7 +99,8 @@ export const AuthProvider = ({ children }) => {
     // Register function with detailed error handling
     const registerUser = async (first_name, last_name, farm_branch_name, email, phone_number, password, password2) => {
         try {
-            const response = await fetch("https://api-bkrt.onrender.com/api/register/", {
+            // https://api-bkrt.onrender.com/api/register/
+            const response = await fetch("http://localhost:8000/api/register/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

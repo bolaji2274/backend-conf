@@ -699,3 +699,29 @@ def testEndPoint(request):
         data = f'Congratulation your API just responded to POST request with text: {text}'
         return Response({'response': data}, status=status.HTTP_200_OK)
     return Response({}, status.HTTP_400_BAD_REQUEST)
+
+# for sending email and generate token
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from .utils import TokenGenerator, generate_token
+from .token_generator import EmailVerificationTokenGenerator, email_verification_token
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.views.generic import View
+
+class ActivateAccountView(View):
+    def get(self, request, uidb64, token):
+        try:
+            uid=force_text(urlsafe_base64_decode(uidb64))
+            user=User.objects.all(pk=uid)
+        except Exception as identifier:
+            user=None
+        if user is not None and generate_token.check_token(user, token):
+            user.is_active=True
+            user.save()
+            return render(request, "activatesuccess.html")
+            # message={"details":"Account is Activated."}
+            # return Response(message, status=status.HTTP_200_OK)
+        else: 
+            return render(request, "activatefail.html")

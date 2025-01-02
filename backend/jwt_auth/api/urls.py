@@ -8,7 +8,8 @@ from .views import overview_dashboard, ProductDashboardView, get_user_role, Appl
 from .views import OrderManagementView, CustomerOrderView
 from .views import resend_verification_email
 from .views import ContactFormView
-from .serializer import ActivateAccountView
+# from .serializer import ActivateAccountView
+from .views import ActivateAccountView
 
 
 from rest_framework.routers import DefaultRouter
