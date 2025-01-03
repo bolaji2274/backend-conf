@@ -717,7 +717,7 @@ class ActivateAccountView(View):
             user=User.objects.all(pk=uid)
         except Exception as identifier:
             user=None
-        if user is not None and generate_token.check_token(user, token):
+        if user and email_verification_token.check_token(user, token):
             user.is_active=True
             user.save()
             return render(request, "activatesuccess.html")

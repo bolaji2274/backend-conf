@@ -200,7 +200,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             {
                 'user':user,
                 # 'domain': 'api-bkrt.onrender.com',
-                'domain': 'http://localhost:8000/api',
+                'domain': 'localhost:8000',
                 'uid':urlsafe_base64_encode(force_bytes(user.pk)),
                 'token':email_verification_token.make_token(user)
             }
