@@ -57,8 +57,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hammedbolajihammed@gmail.com'  # Your Gmail address
-# EMAIL_HOST_PASSWORD = 'udnylwqjnpaeancd'  # The App Password you generated
-EMAIL_HOST_PASSWORD = 'ipqmgmfpqfzydzvf'
+EMAIL_HOST_PASSWORD = 'udnylwqjnpaeancd'  # The App Password you generated
+# EMAIL_HOST_PASSWORD = 'ipqmgmfpqfzydzvf'
 DEFAULT_FROM_EMAIL = 'hammedbolajihammed@gmail.com'
 
 EMAIL_USE_SSL = False

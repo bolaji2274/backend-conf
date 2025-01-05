@@ -190,24 +190,24 @@ class RegisterSerializer(serializers.ModelSerializer):
             farm_branch_name=validated_data['farm_branch_name'],
             phone_number=validated_data['phone_number'],
             password=validated_data['password'],
-            is_active=False
+            # is_active=False
         )
 
         # generate token for sending mail
-        email_subject="Activate your Account"
-        message=render_to_string(
-            "activate.html",
-            {
-                'user':user,
-                # 'domain': 'api-bkrt.onrender.com',
-                'domain': 'localhost:8000',
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':email_verification_token.make_token(user)
-            }
-        )
-        print(message)
-        email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[validated_data['email']])
-        email_message.send()
+        # email_subject="Activate your Account"
+        # message=render_to_string(
+        #     "activate.html",
+        #     {
+        #         'user':user,
+        #         # 'domain': 'api-bkrt.onrender.com',
+        #         'domain': 'localhost:8000',
+        #         'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+        #         'token':email_verification_token.make_token(user)
+        #     }
+        # )
+        # print(message)
+        # email_message=EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[validated_data['email']])
+        # email_message.send()
         return user
     
 # class ActivateAccountView(View):
