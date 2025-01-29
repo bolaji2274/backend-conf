@@ -190,7 +190,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             farm_branch_name=validated_data['farm_branch_name'],
             phone_number=validated_data['phone_number'],
             password=validated_data['password'],
-            # is_active=False
+            is_active=True
         )
 
         # generate token for sending mail
