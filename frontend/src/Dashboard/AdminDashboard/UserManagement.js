@@ -32,7 +32,7 @@ const UserManagement = () => {
     };
 
     const handleAdd = async () => {
-        const result = await api.post('/customers/', newUser);
+        const result = await api.post('/register/', newUser);
         setUsers([...users, result.data]);
         setNewUser({ first_name: '', last_name: '', email: '', farm_branch_name: '', phone_number: '', password: '', password2: '' });
     };

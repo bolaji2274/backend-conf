@@ -53,6 +53,8 @@ import LogoutPage from "./components/Auth.Route/Logout";
 // import AdminContactMessages from "./components/AdminContactMessage";
 import AdminContactMessages from "./components/AdminDashboard/messages/ContactMessages";
 
+import TestAdmin from './Dashboard/AdminDashboard/AdminDashboard'
+
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
 
@@ -81,6 +83,8 @@ function App() {
             <Route path="/test" element={<TestLogin />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<LoginPage />} />
+
+            <Route path="/testadmin" element={<TestAdmin />} />
             <Route
               path="/logout"
               element={

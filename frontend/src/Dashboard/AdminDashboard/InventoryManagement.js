@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Table, TableHead, TableRow, TableCell, TableBody, Typography, Box, Button, TextField, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
+import { Container, Table, TableHead, TableRow, TableCell, TableBody, Typography, Box, Button, TextField, MenuItem, Select, InputLabel, FormControl, Paper } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import api from '../../context/api';
-// import useAxios from '../../utils/useAxios'
-
 
 const InventoryManagement = () => {
-    // const api = useAxios();
     const [livestock, setLivestock] = useState([]);
     const [newLivestock, setNewLivestock] = useState({ name: '', type: '', available_quantity: 0 });
     const [search, setSearch] = useState('');
@@ -51,60 +48,64 @@ const InventoryManagement = () => {
     };
 
     return (
-        <Container>
-            <Typography variant="h6" gutterBottom>Inventory Management</Typography>
-            <Box sx={{ my: 2 }}>
-                <TextField label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
-                <FormControl sx={{ ml: 2, minWidth: 120 }}>
-                    <InputLabel>Sort By</InputLabel>
-                    <Select value={sort} onChange={(e) => setSort(e.target.value)}>
-                        <MenuItem value="name">Name</MenuItem>
-                        <MenuItem value="type">Type</MenuItem>
-                        <MenuItem value="available_quantity">Quantity</MenuItem>
-                        <MenuItem value="created_at">Date Added</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl sx={{ ml: 2, minWidth: 120 }}>
-                    <InputLabel>Filter By Type</InputLabel>
-                    <Select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
-                        <MenuItem value="">All</MenuItem>
-                        <MenuItem value="fish">Fish</MenuItem>
-                        <MenuItem value="broiler">Broiler</MenuItem>
-                        <MenuItem value="layers">Layers</MenuItem>
-                    </Select>
-                </FormControl>
-            </Box>
-            <Box sx={{ my: 2 }}>
-                <TextField label="Name" name="name" value={newLivestock.name} onChange={handleChange} />
-                <TextField label="Type" name="type" value={newLivestock.type} onChange={handleChange} />
-                <TextField label="Quantity" name="available_quantity" type="number" value={newLivestock.available_quantity} onChange={handleChange} />
-                <Button variant="contained" color="primary" onClick={handleAdd}>Add</Button>
-            </Box>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Type</TableCell>
-                        <TableCell>Quantity</TableCell>
-                        <TableCell>Actions</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {livestock.map(item => (
-                        <TableRow key={item.id}>
-                            <TableCell>{item.name}</TableCell>
-                            <TableCell>{item.type}</TableCell>
-                            <TableCell>{item.available_quantity}</TableCell>
-                            <TableCell>
-                                <Button variant="contained" color="secondary" onClick={() => handleDelete(item.id)}>Delete</Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-            <Box sx={{ mt: 2 }}>
-                <Pagination count={totalPages} page={page} onChange={handlePageChange} />
-            </Box>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Paper elevation={3} sx={{ p: 3, bgcolor: '#f5f5f5', borderRadius: 2 }}>
+                <Typography variant="h5" gutterBottom sx={{ color: '#2c3e50', fontWeight: 'bold' }}>Inventory Management</Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 3 }}>
+                    <TextField label="Search" variant="outlined" value={search} onChange={(e) => setSearch(e.target.value)} fullWidth />
+                    <FormControl fullWidth>
+                        <InputLabel>Sort By</InputLabel>
+                        <Select value={sort} onChange={(e) => setSort(e.target.value)}>
+                            <MenuItem value="name">Name</MenuItem>
+                            <MenuItem value="type">Type</MenuItem>
+                            <MenuItem value="available_quantity">Quantity</MenuItem>
+                            <MenuItem value="created_at">Date Added</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <FormControl fullWidth>
+                        <InputLabel>Filter By Type</InputLabel>
+                        <Select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
+                            <MenuItem value="">All</MenuItem>
+                            <MenuItem value="fish">Fish</MenuItem>
+                            <MenuItem value="broiler">Broiler</MenuItem>
+                            <MenuItem value="layers">Layers</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 3 }}>
+                    <TextField label="Name" name="name" value={newLivestock.name} onChange={handleChange} fullWidth />
+                    <TextField label="Type" name="type" value={newLivestock.type} onChange={handleChange} fullWidth />
+                    <TextField label="Quantity" name="available_quantity" type="number" value={newLivestock.available_quantity} onChange={handleChange} fullWidth />
+                    <Button variant="contained" color="primary" onClick={handleAdd} sx={{ bgcolor: '#3498db', color: '#fff', fontWeight: 'bold' }}>Add</Button>
+                </Box>
+                <Paper elevation={2} sx={{ borderRadius: 2, overflow: 'hidden' }}>
+                    <Table>
+                        <TableHead sx={{ bgcolor: '#2c3e50' }}>
+                            <TableRow>
+                                <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Name</TableCell>
+                                <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Type</TableCell>
+                                <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Quantity</TableCell>
+                                <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Actions</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {livestock.map(item => (
+                                <TableRow key={item.id} sx={{ '&:nth-of-type(odd)': { bgcolor: '#ecf0f1' } }}>
+                                    <TableCell>{item.name}</TableCell>
+                                    <TableCell>{item.type}</TableCell>
+                                    <TableCell>{item.available_quantity}</TableCell>
+                                    <TableCell>
+                                        <Button variant="contained" color="error" onClick={() => handleDelete(item.id)} sx={{ bgcolor: '#e74c3c', color: '#fff', fontWeight: 'bold' }}>Delete</Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </Paper>
+                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
+                    <Pagination count={totalPages} page={page} onChange={handlePageChange} color="primary" />
+                </Box>
+            </Paper>
         </Container>
     );
 };
