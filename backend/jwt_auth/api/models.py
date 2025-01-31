@@ -18,7 +18,7 @@ class User(AbstractUser):
     )
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='customer')
     is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
+    # is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     # is_superuser = models.BooleanField(default=False)
     
