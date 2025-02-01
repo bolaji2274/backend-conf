@@ -3,14 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const notificationsSlice = createSlice({
   name: "notifications",
   initialState: {
-    unreadCount: 0, // Tracks new unread notifications
+    // Tracks new unread notifications
+    unreadCount: 0, 
   },
   reducers: {
     addNotification: (state) => {
-      state.unreadCount += 1; // Increment notification count
+      // Increment notification count
+      state.unreadCount += 1; 
     },
     clearNotifications: (state) => {
-      state.unreadCount = 0; // Reset notification count
+      // Reset notification count
+      state.unreadCount = 0; 
     },
   },
 });
