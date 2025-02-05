@@ -15,6 +15,11 @@
 # production
 /build
 
+# production key 
+*.crt
+*.key
+*.pem
+
 # misc
 .DS_Store
 *.pem
@@ -70,12 +75,22 @@ VENV/
 # Django related files
 db.sqlite3
 *.log
-
+ sudo systemctl restart packagekit.service
+ sudo systemctl restart ssh.service
+ sudo systemctl restart systemd-journald.service
+ sudo systemctl restart systemd-logind.service
+ /etc/needrestart/restart.d/systemd-manager
+ sudo systemctl restart systemd-networkd.service
+ sudo systemctl restart systemd-resolved.service
+ sudo systemctl restart user@1000.servicees.service
+ sudo systemctl restart networkd-dispatcher.service
 # Local settings
 settings_local.py
 
 # Media files
 media/
+
+
 
 # Static files
 staticfiles/

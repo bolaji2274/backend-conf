@@ -1,0 +1,30 @@
+name: Deploy Frontend
+
+on:
+  push:
+    paths:
+      - "frontend/**"  # Only trigger when frontend files change
+    branches:
+      - main
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: SSH into EC2 and Deploy Frontend
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/backend-conf/frontend
+            git pull origin main
+            npm install
+            npm run build
+            sudo cp -r build/* /var/www/html/
+            echo "Frontend deployment complete!"
