@@ -49,7 +49,7 @@ const Navbar = () => {
                       className="w-10 inline-block rounded-full"
                     />
                     {/* <span>NASFARM</span> */}
-                    <h2 className='text-2xl text-black'>Nas<span className='text-3xl text-green-500'>Farm</span></h2>
+                    <h2 className='text-2xl text-black'>Nasradamuf<span className='text-3xl text-green-500'>Farm</span></h2>
                   </Link>
        
         <div className='flex items-center gap-5'>
