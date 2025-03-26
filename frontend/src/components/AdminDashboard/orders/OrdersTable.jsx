@@ -72,7 +72,8 @@ const OrdersTable = () => {
           <thead>
             <tr>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Order ID</th>
-              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Customer</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Customer Name</th>
+              <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Customer ID</th>
 			   <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Product Type</th>
               <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Total QT</th>
 			   <th className='px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider'>Total Price</th>
@@ -92,6 +93,7 @@ const OrdersTable = () => {
               >
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.id}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.customer_name}</td>
+                <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.customer_id}</td>
 				<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.application_details.product_details.name}</td>
                 <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>{order.application_details.quantity}</td>
 				<td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100'>₦{order.total_price}</td>
