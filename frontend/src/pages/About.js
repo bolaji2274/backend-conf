@@ -74,6 +74,7 @@ function About() {
                   models. We believe in making a positive impact on the
                   agricultural industry by supporting every farmer's unique
                   needs.
+                  Let work together for making a livestock farm a success.
                 </p>
                 <Link
                   to="/about#full-description"
