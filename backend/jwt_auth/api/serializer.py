@@ -57,11 +57,13 @@ class ApplicationSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     application_details = ApplicationSerializer(source='application', read_only=True)
     total_price = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)  # Include total price
-    customer_name = serializers.CharField(source='application.customer.username', read_only=True)  # Include customer's name
+    customer_name = serializers.CharField(source='application.customer.firstname', read_only=True)  # Include customer's name
+    #changes made now 26 wed march 2025 changes custom customer_name = serializers.CharField(source='application.customer.username', read_only=True)  # Include customer's name
+    customer_id = serializers.CharField(source='application.customer.username', read_only=True)
     class Meta:
         model = Order
         # fields = '__all__'
-        fields = ['id', 'application_details', 'total_price', 'status', 'created_at', 'updated_at', 'customer_name']
+        fields = ['id', 'application_details', 'total_price', 'status', 'created_at', 'updated_at', 'customer_name', 'customer_id']
 
 class SaleSerializer(serializers.ModelSerializer):
     class Meta:
