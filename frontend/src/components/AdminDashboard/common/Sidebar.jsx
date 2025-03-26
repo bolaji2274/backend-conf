@@ -1,4 +1,4 @@
-import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users } from "lucide-react";
+import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users, HomeIcon } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const SIDEBAR_ITEMS = [
+	{ name: "Go Home", icon: HomeIcon, color: "#1B3A4B", href: "/" },
 	{
 		name: "Overview",
 		icon: BarChart2,
