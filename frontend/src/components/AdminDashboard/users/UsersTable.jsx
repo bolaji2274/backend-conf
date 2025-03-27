@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import Spinner from "../../../pages/Spinner.js";
 
 const UsersTable = () => {
   const [users, setUsers] = useState([]);
@@ -64,7 +65,9 @@ const UsersTable = () => {
   };
 
   if (loading) {
-    return <div className="text-white">Loading...</div>;
+    return <div className="text-white">
+      <Spinner/>
+    </div>;
   }
 
   if (error) {
